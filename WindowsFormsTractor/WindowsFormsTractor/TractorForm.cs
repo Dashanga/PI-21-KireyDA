@@ -12,7 +12,7 @@ namespace WindowsFormsTractor
 {
     public partial class TractorForm : Form
     {
-        private Tractor car;
+        private ITransport car;
         /// Конструктор
         public TractorForm()
         {
@@ -34,7 +34,7 @@ namespace WindowsFormsTractor
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            car = new Tractor(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, true);
+            car = new Tractor(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
             Draw();
         }
@@ -72,6 +72,13 @@ namespace WindowsFormsTractor
         private void TractorForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random(); car = new TractorExkavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue, Color.Yellow);
+            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
+            Draw();
         }
     }
 }

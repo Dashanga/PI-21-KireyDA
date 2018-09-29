@@ -17,21 +17,8 @@ namespace WindowsFormsTractor
 
         Right
     }
-    class Tractor
+    class Tractor : Vehicle
     {
-        
-
-        /// Левая координата отрисовки автомобиля    
-        private float _startPosX; 
-     
-        /// Правая кооридната отрисовки автомобиля         
-        private float _startPosY; 
-        
-        /// Ширина окна отрисовки        
-        private int _pictureWidth;
-
-        //Высота окна отрисовки         
-        private int _pictureHeight; 
         
         /// Ширина отрисовки автомобиля  
         private const int carWidth = 72; 
@@ -39,18 +26,6 @@ namespace WindowsFormsTractor
         /// Ширина отрисовки автомобиля  
         private const int carHeight = 42; 
   
-        /// Максимальная скорость       
-        public int MaxSpeed { private set; get; } 
-   
-        /// Вес автомобиля         
-        public float Weight { private set; get; }
-
-        public Color MainColor { private set; get; }
-        
-        /// Дополнительный цвет    
-        public Color DopColor { private set; get; } 
-
-                
         /// Признак наличия переднего спойлера   
         public bool FrontSpoiler { private set; get; }
        
@@ -69,33 +44,19 @@ namespace WindowsFormsTractor
         /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
         ///        
-        public Tractor(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontSpoiler, bool sideSpoiler, bool backSpoiler)
+        public Tractor(int maxSpeed, float weight, Color mainColor)
         {             
             MaxSpeed = maxSpeed;             
             Weight = weight;             
-            MainColor = mainColor;            
-            DopColor = dopColor;             
-            FrontSpoiler = frontSpoiler;             
-            SideSpoiler = sideSpoiler;             
-            BackSpoiler = backSpoiler;
+            MainColor = mainColor;  
         }
       
-    /// Установка позиции автомобиля       
-    /// <param name="x">Координата X</param>         
-    /// <param name="y">Координата Y</param>         
-    /// <param name="width">Ширина картинки</param>         
-    /// <param name="height">Высота картинки</param>        
-    public void SetPosition(int x, int y, int width, int height)        
-    {             
-        _startPosX = x;             
-        _startPosY = y;             
-        _pictureWidth = width;             
-        _pictureHeight = height;         
-    }
+          
+    
 
         /// Изменение направления пермещения
         /// <param name="direction">Направление</param> 
-        public void MoveTransport(Direction direction)
+        public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 130 / Weight; switch (direction)
             {                 // вправо                 
@@ -131,20 +92,15 @@ namespace WindowsFormsTractor
 
         /// Отрисовка автомобиля
         /// <param name="g"></param> 
-        public void DrawCar(Graphics g)
+        public override void DrawCar(Graphics g)
         {
-
             Brush spoiler = new SolidBrush(Color.Yellow);
             g.FillRectangle(spoiler, _startPosX + 1, _startPosY + 5, 50, 15);
-            g.FillRectangle(spoiler, _startPosX - 20, _startPosY - 15, 25, 6);
-            g.FillRectangle(spoiler, _startPosX - 20, _startPosY - 15, 6, 20);
-
             spoiler = new SolidBrush(Color.Black);
             g.FillRectangle(spoiler, _startPosX +2, _startPosY - 15, 20, 25);
             g.FillEllipse(spoiler, _startPosX + 40, _startPosY + 15, 12, 12);
             g.FillEllipse(spoiler, _startPosX, _startPosY + 15, 12, 12);
-            g.FillRectangle(spoiler, _startPosX - 20, _startPosY , 10, 10);
-            spoiler = new SolidBrush(Color.LightBlue);
+            spoiler = new SolidBrush(MainColor);
             g.FillRectangle(spoiler, _startPosX + 3 , _startPosY - 10, 7, 15);
         }
     }

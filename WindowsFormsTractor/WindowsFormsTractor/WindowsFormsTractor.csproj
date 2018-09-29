@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ITransport.cs" />
+    <Compile Include="TractorExkavator.cs" />
     <Compile Include="TractorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tractor.cs" />
+    <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
