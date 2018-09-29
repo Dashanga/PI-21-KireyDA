@@ -25,12 +25,9 @@ namespace WindowsFormsTractor
         
         /// Ширина отрисовки автомобиля  
         private const int carHeight = 42; 
-  
-        /// Признак наличия переднего спойлера   
-        public bool FrontSpoiler { private set; get; }
        
-        /// Признак наличия боковых спойлеров       
-        public bool SideSpoiler { private set; get; }
+        /// Признак наличия ковша      
+        public bool Kovsh { private set; get; }
        
         /// Признак наличия заднего спойлера          
         public bool BackSpoiler { private set; get; } 
@@ -48,12 +45,10 @@ namespace WindowsFormsTractor
         {             
             MaxSpeed = maxSpeed;             
             Weight = weight;             
-            MainColor = mainColor;  
+            MainColor = mainColor;
+            Kovsh = true;
         }
       
-          
-    
-
         /// Изменение направления пермещения
         /// <param name="direction">Направление</param> 
         public override void MoveTransport(Direction direction)
