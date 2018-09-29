@@ -76,7 +76,7 @@ namespace WindowsFormsTractor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random(); car = new TractorExkavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue, Color.Yellow, true);
+            Random rnd = new Random(); car = new TractorExkavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue, Color.Yellow, true, true);
             car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
             Draw();
         }

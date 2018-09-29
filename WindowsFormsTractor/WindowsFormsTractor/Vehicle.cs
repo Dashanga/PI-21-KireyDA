@@ -55,8 +55,8 @@ namespace WindowsFormsTractor
         /// <param name="height">Высота картинки</param>  
         public void SetPosition(int x, int y, int width, int height)
         {
-            _startPosX = x;
-            _startPosY = y;
+            _startPosX = 130;
+            _startPosY = 130;
             _pictureWidth = width;
             _pictureHeight = height;
         }

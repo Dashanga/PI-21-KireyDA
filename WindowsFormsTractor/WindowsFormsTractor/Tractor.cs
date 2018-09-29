@@ -26,11 +26,6 @@ namespace WindowsFormsTractor
         /// Ширина отрисовки автомобиля  
         private const int carHeight = 42; 
        
-        /// Признак наличия ковша      
-        public bool Kovsh { private set; get; }
-       
-        /// Признак наличия заднего спойлера          
-        public bool BackSpoiler { private set; get; } 
          
         /// Конструктор         
         /// <param name="maxSpeed">Максимальная скорость</param>         
@@ -46,7 +41,6 @@ namespace WindowsFormsTractor
             MaxSpeed = maxSpeed;             
             Weight = weight;             
             MainColor = mainColor;
-            Kovsh = true;
         }
       
         /// Изменение направления пермещения
