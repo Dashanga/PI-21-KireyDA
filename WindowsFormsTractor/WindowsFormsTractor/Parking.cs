@@ -80,6 +80,7 @@ namespace WindowsFormsTractor
             return null;
         }
 
+
         /// Метод проверки заполнености парковочного места (ячейки массива)      
         /// <param name="index">Номер парковочного места (порядковый номер в массиве)</param>         
         /// <returns></returns>         

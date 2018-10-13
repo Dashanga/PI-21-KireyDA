@@ -87,7 +87,7 @@
             // 
             this.pictureBoxTakeCar.Location = new System.Drawing.Point(0, 75);
             this.pictureBoxTakeCar.Name = "pictureBoxTakeCar";
-            this.pictureBoxTakeCar.Size = new System.Drawing.Size(138, 100);
+            this.pictureBoxTakeCar.Size = new System.Drawing.Size(180, 100);
             this.pictureBoxTakeCar.TabIndex = 3;
             this.pictureBoxTakeCar.TabStop = false;
             // 
@@ -105,7 +105,7 @@
             // 
             this.maskedTextBox.Location = new System.Drawing.Point(62, 16);
             this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(34, 20);
+            this.maskedTextBox.Size = new System.Drawing.Size(29, 20);
             this.maskedTextBox.TabIndex = 1;
             // 
             // label1
@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 413);
+            this.ClientSize = new System.Drawing.Size(767, 413);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button);
             this.Controls.Add(this.button1);

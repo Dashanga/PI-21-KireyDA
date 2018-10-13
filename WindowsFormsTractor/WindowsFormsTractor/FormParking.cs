@@ -76,7 +76,7 @@ namespace WindowsFormsTractor
                 {
                     Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    car.SetPosition(5, 5, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                    car.SetPosition(50, 50, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                     car.DrawCar(gr);
                     pictureBoxTakeCar.Image = bmp;
                 }
