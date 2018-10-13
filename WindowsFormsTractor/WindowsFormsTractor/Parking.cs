@@ -51,8 +51,8 @@ namespace WindowsFormsTractor
                 if (p.CheckFreePlace(i))
                 {
                     p._places[i] = car;
-                    p._places[i].SetPosition(5 + i / 5 * p._placeSizeWidth + 5,
-                        i % 5 * p._placeSizeHeight + 15, p.PictureWidth,
+                    p._places[i].SetPosition(25 + i / 5 * p._placeSizeWidth + 5,
+                        i % 5 * p._placeSizeHeight + 30, p.PictureWidth,
                         p.PictureHeight);
                     return i;
                 }
