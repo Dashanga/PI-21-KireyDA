@@ -36,6 +36,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
@@ -52,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(602, 12);
+            this.button1.Location = new System.Drawing.Point(575, 171);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 41);
             this.button1.TabIndex = 1;
@@ -62,7 +64,7 @@
             // 
             // button
             // 
-            this.button.Location = new System.Drawing.Point(602, 68);
+            this.button.Location = new System.Drawing.Point(664, 171);
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(91, 61);
             this.button.TabIndex = 2;
@@ -117,11 +119,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Место";
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(575, 37);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(120, 95);
+            this.listBoxLevels.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(609, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Уровни";
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 413);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button);
             this.Controls.Add(this.button1);
@@ -133,6 +154,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,5 +168,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Label label2;
     }
 }

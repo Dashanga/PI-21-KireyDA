@@ -12,81 +12,118 @@ namespace WindowsFormsTractor
 {
     public partial class FormParking : Form
     {
-        /// Объект от класса-парковки         
-        Parking<ITransport> parking;
+        ///Объект от класса многоуровневой парковки
+
+        MultiLevelParking parking;
+
+        ///Количествоуровней-парковок
+
+        private const int countLevel = 5;
         public FormParking()
         {
             InitializeComponent();
-            parking = new Parking<ITransport>(20, pictureBoxParking.Width,
-            pictureBoxParking.Height);
-            Draw();
+            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width, pictureBoxParking.Height);
+            //заполнени listBox
+            for (int i = 0; i < countLevel; i++)
+            {
+                listBoxLevels.Items.Add("Уровень" + (i + 1));
+            }
+            listBoxLevels.SelectedIndex = 0;
         }
-
-        /// Метод отрисовки парковки         	
+        ///Методотрисовкипарковки
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            parking.Draw(gr);
-            pictureBoxParking.Image = bmp;
-        }
-
-        /// Обработка нажатия кнопки "Припарковать автомобиль"              
-        /// <param name="sender"></param>         
-        /// <param name="e"></param>         	
-        private void buttonSetCar_Click(object sender, EventArgs e)
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                var car = new Tractor(100, 1000, dialog.Color);
-                int place = parking + car;
-                Draw();
+                //если выбран один из пуктов в listBox (при старте программы ни один пункт не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
+Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
+                Graphics gr =
+                Graphics.FromImage(bmp);
+                parking[listBoxLevels.SelectedIndex].Draw(gr);
+                pictureBoxParking.Image = bmp;
             }
         }
+        ///Обработканажатиякнопки"Припарковатьавтомобиль"
 
-        /// Обработка нажатия кнопки "Припарковать гоночный автомобиль" 
-        /// <param name="sender"></param>         
-        /// <param name="e"></param>         
-        private void buttonSetSportCar_Click(object sender, EventArgs e)
+        ///<param name="sender"></param>
+        ///<param name="e"></param>
+        private void buttonSetCar_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new TractorExkavator(100, 1000, dialog.Color,
-                    dialogDop.Color, true, true);
-                    int place = parking + car;
+                    var car = new Tractor(100, 1000, dialog.Color);
+                    int place = parking[listBoxLevels.SelectedIndex] + car;
+                    if (place == -1)
+                    {
+                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     Draw();
                 }
             }
         }
 
-        /// Обработка нажатия кнопки "Забрать"         
-        /// <param name="sender"></param>         
-        /// <param name="e"></param>         
+        ///Обработка нажатия кнопки "Припарковать гоночный автомобиль"
+        ///<param name="sender"></param>
+        ///<param name="e"></param>
+        private void buttonSetSportCar_Click(object sender, EventArgs e)
+        {
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var car = new TractorExkavator(100, 1000, dialog.Color, dialogDop.Color, true, true);
+                        int place = parking[listBoxLevels.SelectedIndex] + car;
+                        if (place == -1)
+                        {
+                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Draw();
+                    }
+                }
+            }
+        }
+
+        ///Обработканажатиякнопки"Забрать"
+        ///<param name="sender"></param>
+        ///<param name="e"></param>
         private void buttonTakeCar_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox.Text != "")
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                var car = parking - Convert.ToInt32(maskedTextBox.Text);
-                if (car != null)
+                if (maskedTextBox.Text != "")
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                    Graphics gr = Graphics.FromImage(bmp);
-                    car.SetPosition(50, 50, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                    car.DrawCar(gr);
-                    pictureBoxTakeCar.Image = bmp;
+                    var car = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
+                    if (car != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        car.SetPosition(25, 25, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                        car.DrawCar(gr);
+                        pictureBoxTakeCar.Image = bmp;
+                    }
+                    else
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                        pictureBoxTakeCar.Image = bmp;
+                    }
+                    Draw();
                 }
-                else
-                {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                    pictureBoxTakeCar.Image = bmp;
-                }
-                Draw();
             }
+        }
+
+        ///Метод обработки выбора элемента на listBoxLevels
+        ///<param name="sender"></param>
+        ///<param name="e"></param>
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }
