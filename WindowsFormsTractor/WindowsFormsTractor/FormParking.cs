@@ -125,5 +125,10 @@ Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
         {
             Draw();
         }
+
+        private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            Draw();
+        }
     }
 }
