@@ -14,9 +14,9 @@ class Tractor extends Vehicle {
     public int getMaxSpeed() {
     	return MaxSpeed;
     }
-//    private void setMaxSpeed(int value) {
-//    	MaxSpeed = value;
-//    }
+    private void setMaxSpeed(int value) {
+    	MaxSpeed = value;
+    }
     
     /// Вес трактора         
     private float Weight;
@@ -24,9 +24,9 @@ class Tractor extends Vehicle {
     public float getWeight() { 
     	return Weight; 
     }
-//    private void setWeight(float value) {
-//    	Weight = value;
-//    }
+    private void setWeight(float value) {
+    	Weight = value;
+    }
 	
 
 	// Основной цвет
