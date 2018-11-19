@@ -26,7 +26,8 @@ namespace WindowsFormsTractor
         /// Признак наличия ковша      
         public bool KovshBack { private set; get; }
 
-        public TractorExkavator(int maxSpeed, float weight, Color mainColor, Color dopColor, bool kovsh, bool kovsh2) : base (maxSpeed, weight, mainColor)         
+        public TractorExkavator(int maxSpeed, float weight, Color mainColor, 
+        Color dopColor, bool kovsh, bool kovsh2) : base (maxSpeed, weight, mainColor)         
         {
             DopColor = dopColor;
             Kovsh = kovsh;
@@ -51,6 +52,14 @@ namespace WindowsFormsTractor
                 g.FillRectangle(spoiler, _startPosX + 60, _startPosY+5, 15, 15);
             }
             base.DrawCar(g);
+        }
+
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }

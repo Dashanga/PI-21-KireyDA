@@ -61,6 +61,11 @@ namespace WindowsFormsTractor
             _pictureHeight = height;
         }
 
+        public void SetMainColor(Color color)
+        {
+            MainColor = color;
+        }
+
         public abstract void DrawCar(Graphics g);
 
         public abstract void MoveTransport(Direction direction);
