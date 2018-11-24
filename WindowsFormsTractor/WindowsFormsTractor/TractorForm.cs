@@ -63,15 +63,5 @@ namespace WindowsFormsTractor
             }
             Draw();
         }
-
-        private void pictureBoxTractor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TractorForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

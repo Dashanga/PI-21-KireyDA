@@ -7,16 +7,6 @@ using System.Drawing;
 
 namespace WindowsFormsTractor
 {
-    public enum Direction
-    {
-        Up,
-
-        Down,
-
-        Left,
-
-        Right
-    }
     class Tractor
     {
         
