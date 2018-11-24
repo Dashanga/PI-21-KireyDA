@@ -90,7 +90,14 @@ namespace WindowsFormsTractor
         /// <param name="e"></param>
         private void panelCar_DragEnter(object sender, DragEventArgs e)
         {
-
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
         }
         /// <summary>
         /// Действия при приеме перетаскиваемой информации
