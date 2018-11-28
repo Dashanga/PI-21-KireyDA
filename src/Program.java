@@ -7,7 +7,7 @@ public class Program {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TractorForm window = new TractorForm();
+					FormParking window = new FormParking();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
