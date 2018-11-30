@@ -1,6 +1,4 @@
 import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
