@@ -36,8 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.buttonSetCar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -68,9 +66,9 @@
             // 
             // pictureBoxTakeCar
             // 
-            this.pictureBoxTakeCar.Location = new System.Drawing.Point(0, 75);
+            this.pictureBoxTakeCar.Location = new System.Drawing.Point(0, 72);
             this.pictureBoxTakeCar.Name = "pictureBoxTakeCar";
-            this.pictureBoxTakeCar.Size = new System.Drawing.Size(180, 100);
+            this.pictureBoxTakeCar.Size = new System.Drawing.Size(180, 103);
             this.pictureBoxTakeCar.TabIndex = 3;
             this.pictureBoxTakeCar.TabStop = false;
             // 
@@ -118,27 +116,9 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Уровни";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(581, 144);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 48);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "<<";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(643, 144);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 48);
-            this.button2.TabIndex = 7;
-            this.button2.Text = ">>";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // buttonSetCar
             // 
-            this.buttonSetCar.Location = new System.Drawing.Point(581, 203);
+            this.buttonSetCar.Location = new System.Drawing.Point(581, 169);
             this.buttonSetCar.Name = "buttonSetCar";
             this.buttonSetCar.Size = new System.Drawing.Size(118, 29);
             this.buttonSetCar.TabIndex = 8;
@@ -152,8 +132,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 413);
             this.Controls.Add(this.buttonSetCar);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
@@ -179,8 +157,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonSetCar;
     }
 }

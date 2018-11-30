@@ -43,7 +43,7 @@ namespace WindowsFormsTractor
             {
                 Bitmap bmp = new Bitmap(pictureBoxCar.Width, pictureBoxCar.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                car.SetPosition(5, 5, pictureBoxCar.Width, pictureBoxCar.Height);
+                car.SetPosition(30, 20, pictureBoxCar.Width, pictureBoxCar.Height);
                 car.DrawCar(gr);
                 pictureBoxCar.Image = bmp;
             }
@@ -108,10 +108,10 @@ namespace WindowsFormsTractor
         {
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
-                case "Обычный автомобиль":
+                case "Обычный трактор":
                     car = new Tractor(100, 500, Color.White);
                     break;
-                case "Гоночный автомобиль":
+                case "Трактор-экскаватор":
                     car = new TractorExkavator(100, 500, Color.White, Color.Black, true, true);
                     break;
             }
@@ -177,7 +177,9 @@ namespace WindowsFormsTractor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonOk_Click(object sender, EventArgs e)
+     
+
+        private void buttonOk_Click_1(object sender, EventArgs e)
         {
             eventAddCar?.Invoke(car);
             Close();

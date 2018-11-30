@@ -69,7 +69,7 @@ pictureBoxParking.Height);
                         Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
                         pictureBoxTakeCar.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(5, 5, pictureBoxTakeCar.Width,
+                        car.SetPosition(25, 15, pictureBoxTakeCar.Width,
                         pictureBoxTakeCar.Height);
                         car.DrawCar(gr);
                         pictureBoxTakeCar.Image = bmp;
@@ -123,7 +123,5 @@ pictureBoxParking.Height);
                 }
             }
         }
-
-       
     }
 }
