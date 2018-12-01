@@ -155,7 +155,7 @@ namespace WindowsFormsTractor
                 return false;
             }
             int counter = -1;
-            ITransport car = null;
+            ITransport tractor = null;
             for (int i = 1; i < strs.Length; ++i)
             {
                 //идем по считанным записям
@@ -173,13 +173,13 @@ namespace WindowsFormsTractor
                 }
                 if (strs[i].Split(':')[1] == "Tractor")
                 {
-                    car = new Tractor(strs[i].Split(':')[2]);
+                    tractor = new Tractor(strs[i].Split(':')[2]);
                 }
-                else if (strs[i].Split(':')[1] == "TractorExcavator")
+                else if (strs[i].Split(':')[1] == "TractorExkavator")
                 {
-                    car = new TractorExkavator(strs[i].Split(':')[2]);
+                    tractor = new TractorExkavator(strs[i].Split(':')[2]);
                 }
-                parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = car;
+                parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = tractor;
             }
             return true;
         }

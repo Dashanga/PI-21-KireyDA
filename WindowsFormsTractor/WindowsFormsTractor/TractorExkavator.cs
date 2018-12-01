@@ -37,7 +37,7 @@ namespace WindowsFormsTractor
         public TractorExkavator(string info) : base(info)
 {
             string[] strs = info.Split(';');
-            if (strs.Length == 7)
+            if (strs.Length == 6)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
