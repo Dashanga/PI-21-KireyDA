@@ -42,6 +42,7 @@ public class Parking<T extends Vehicle> {
 	// / <param name="sizes">Количество мест на парковке</param>
 	// / <param name="pictureWidth">Рамзер парковки - ширина</param>
 	// / <param name="pictureHeight">Рамзер парковки - высота</param>
+	@SuppressWarnings("unchecked")
 	public Parking(int sizes, int pictureWidth, int pictureHeight) {
 		_places = (T[]) new Vehicle[sizes];
 		setPictureWidth(pictureWidth);

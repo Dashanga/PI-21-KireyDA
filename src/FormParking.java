@@ -1,10 +1,16 @@
+import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
+
 import java.awt.Color;
+
 import javax.swing.JTextField;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class FormParking {
@@ -13,8 +19,13 @@ public class FormParking {
 	private Panel_pictureBoxParking panel;
 	private JTextField maskedTextBox;
 	
+	/// Объект от класса-парковки         
+    Parking<Vehicle> parking;
+    
     public FormParking() {
 		initialize();
+		parking = new Parking<Vehicle>(20, panel.getWidth(), panel.getHeight());
+		panel.setParking(parking);
 		Draw();
 	}
 	
@@ -41,10 +52,38 @@ public class FormParking {
 		panel_main.add(panel);
 		
 		JButton btnn = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u0442\u0440\u0430\u043A\u0442\u043E\u0440-\u044D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440");
+		btnn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JPanel dialog = new JPanel();
+				Color color = JColorChooser.showDialog(dialog, "Цвет", Color.BLUE);
+	            if (color != null)
+	            {
+	            	JPanel dialogDop = new JPanel();
+	            	Color dopColor = JColorChooser.showDialog(dialogDop, "Дополнительный цвет", Color.GRAY);
+	            	if (dopColor != null) {
+		                TractorExkavator car = new TractorExkavator(100, 1000, color, dopColor, true, true);
+		                int place = parking.addCar(parking, car);
+		                Draw();
+	            	}
+	            }
+			}
+		});
 		btnn.setBounds(527, 45, 251, 23);
 		panel_main.add(btnn);
 		
 		JButton button1 = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u0442\u0440\u0430\u043A\u0442\u043E\u0440");
+		button1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JPanel dialog = new JPanel();
+				Color color = JColorChooser.showDialog(dialog, "Цвет", Color.BLUE);
+	            if (color != null)
+	            {
+	                Tractor car = new Tractor(100, 1000, color);
+	                int place = parking.addCar(parking, car);
+	                Draw();
+	            }
+			}
+		});
 		button1.setBounds(552, 11, 204, 23);
 		panel_main.add(button1);
 		

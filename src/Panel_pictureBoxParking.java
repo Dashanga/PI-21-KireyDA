@@ -9,11 +9,8 @@ public class Panel_pictureBoxParking extends JPanel {
 	
 	/// Объект от класса-парковки
 	private Parking<Vehicle> parking;
-	
-	Panel_pictureBoxParking(){
-		parking = new Parking<Vehicle>(20,
-				this.getWidth(),
-	            this.getHeight());
+	public void setParking(Parking<Vehicle> parking) {
+		this.parking = parking;
 	}
 	
 	public void addCar(Tractor t){
