@@ -1,6 +1,7 @@
 import javax.swing.JColorChooser;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
@@ -12,27 +13,39 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JComboBox;
+
 
 public class FormParking {
 
 	public JFrame frame;
 	private Panel_pictureBoxParking panel;
 	private static final Panel_pictureBoxTractor pictureBoxTakeCar = new Panel_pictureBoxTractor();
+	private static JComboBox<String> listBoxLevels = new JComboBox<String>();
 	private JTextField maskedTextBox;
 	
 	/// Объект от класса-парковки         
-    Parking<Vehicle> parking;
+    MultiLevelParking parking;
+    
+    ///Количество уровней-парковок
+    private final int countLevel = 5;
     
     public FormParking() {
 		initialize();
-		parking = new Parking<Vehicle>(20, panel.getWidth(), panel.getHeight());
-		panel.setParking(parking);
+		parking = new MultiLevelParking(20, panel.getWidth(), panel.getHeight());
+		//заполнение comboBox
+        for (int i = 0; i < countLevel; i++)
+        {
+            listBoxLevels.addItem("Уровень" + (i + 1));
+        }
+        listBoxLevels.setSelectedIndex(0);
 		Draw();
 	}
 	
 	/// Метод отрисовки парковки         	
     private void Draw()
     {
+    	panel.setParking(parking.getValue(listBoxLevels.getSelectedIndex()));
     	panel.repaint();
     }
 
@@ -55,37 +68,51 @@ public class FormParking {
 		JButton btnn = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u0442\u0440\u0430\u043A\u0442\u043E\u0440-\u044D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440");
 		btnn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JPanel dialog = new JPanel();
-				Color color = JColorChooser.showDialog(dialog, "Цвет", Color.BLUE);
-	            if (color != null)
-	            {
-	            	JPanel dialogDop = new JPanel();
-	            	Color dopColor = JColorChooser.showDialog(dialogDop, "Дополнительный цвет", Color.GRAY);
-	            	if (dopColor != null) {
-		                TractorExkavator car = new TractorExkavator(100, 1000, color, dopColor, true, true);
-		                int place = parking.addCar(parking, car);
-		                Draw();
-	            	}
-	            }
+				final int selectedLevel = listBoxLevels.getSelectedIndex();
+				if (selectedLevel > -1) {
+					JPanel dialog = new JPanel();
+					Color color = JColorChooser.showDialog(dialog, "Цвет", Color.BLUE);
+		            if (color != null)
+		            {
+		            	JPanel dialogDop = new JPanel();
+		            	Color dopColor = JColorChooser.showDialog(dialogDop, "Дополнительный цвет", Color.GRAY);
+		            	if (dopColor != null) {
+			                TractorExkavator car = new TractorExkavator(100, 1000, color, dopColor, true, true);
+			                int place = parking.getValue(listBoxLevels.getSelectedIndex()).addCar(car);
+	                        if (place == -1)
+	                        {
+	                        	JOptionPane.showMessageDialog(frame, "Нет свободных мест");
+	                        }
+			                Draw();
+		            	}
+		            }
+				}
 			}
 		});
-		btnn.setBounds(527, 45, 251, 23);
+		btnn.setBounds(527, 101, 251, 23);
 		panel_main.add(btnn);
 		
 		JButton button1 = new JButton("\u041F\u0440\u0438\u043F\u0430\u0440\u043A\u043E\u0432\u0430\u0442\u044C \u0442\u0440\u0430\u043A\u0442\u043E\u0440");
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JPanel dialog = new JPanel();
-				Color color = JColorChooser.showDialog(dialog, "Цвет", Color.BLUE);
-	            if (color != null)
-	            {
-	                Tractor car = new Tractor(100, 1000, color);
-	                int place = parking.addCar(parking, car);
-	                Draw();
-	            }
+				final int selectedLevel = listBoxLevels.getSelectedIndex();
+				if (selectedLevel > -1) {
+					JPanel dialog = new JPanel();
+					Color color = JColorChooser.showDialog(dialog, "Цвет", Color.BLUE);
+		            if (color != null)
+		            {
+		                Tractor car = new Tractor(100, 1000, color);
+		                int place = parking.getValue(listBoxLevels.getSelectedIndex()).addCar(car);
+                        if (place == -1)
+                        {
+                        	JOptionPane.showMessageDialog(frame, "Нет свободных мест");
+                        }
+                        Draw();
+		            }
+				}
 			}
 		});
-		button1.setBounds(552, 11, 204, 23);
+		button1.setBounds(552, 67, 204, 23);
 		panel_main.add(button1);
 		
 		pictureBoxTakeCar.setBounds(527, 305, 251, 80);
@@ -98,21 +125,28 @@ public class FormParking {
 		panel_main.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel label_1 = new JLabel("\u041C\u0435\u0441\u0442\u043E");
+		JLabel label_1 = new JLabel("\u041C\u0435\u0441\u0442\u043E:");
 		label_1.setBounds(33, 30, 58, 20);
 		panel_1.add(label_1);
 		
 		JButton buttonTakeCar = new JButton("\u0417\u0430\u0431\u0440\u0430\u0442\u044C");
 		buttonTakeCar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Vehicle car = parking.removeCar(parking, Integer.parseInt(maskedTextBox.getText()));
-                if (car != null)
-                {
-                    car.SetPosition(50, 50, pictureBoxTakeCar.getWidth(), pictureBoxTakeCar.getHeight());
-                    pictureBoxTakeCar.addCar(car);
-                }
-                Draw();
-                pictureBoxTakeCar.repaint();
+				final int selectedLevel = listBoxLevels.getSelectedIndex();
+				if (selectedLevel > -1)
+	            {
+					if (maskedTextBox.getText().isEmpty() == false) {
+						Vehicle car = parking.getValue(selectedLevel).removeCar(Integer.parseInt(maskedTextBox.getText()));
+		                if (car != null)
+		                {
+		                    car.SetPosition(50, 50, pictureBoxTakeCar.getWidth(), pictureBoxTakeCar.getHeight());
+		                    pictureBoxTakeCar.addCar(car);
+		                }
+		                Draw();
+		                pictureBoxTakeCar.repaint();
+	            
+					}
+	            }
             }
 		});
 		buttonTakeCar.setBounds(32, 70, 188, 23);
@@ -126,5 +160,18 @@ public class FormParking {
 		JLabel label = new JLabel("\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u043C\u0430\u0448\u0438\u043D\u0443");
 		label.setBounds(527, 212, 251, 14);
 		panel_main.add(label);
+		
+		listBoxLevels.setMaximumRowCount(countLevel);
+		listBoxLevels.addActionListener (new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+		        Draw();
+		    }
+		});
+		listBoxLevels.setBounds(612, 11, 166, 20);
+		panel_main.add(listBoxLevels);
+		
+		JLabel label_2 = new JLabel("\u0423\u0440\u043E\u0432\u0435\u043D\u044C:");
+		label_2.setBounds(527, 14, 86, 14);
+		panel_main.add(label_2);
 	}
 }

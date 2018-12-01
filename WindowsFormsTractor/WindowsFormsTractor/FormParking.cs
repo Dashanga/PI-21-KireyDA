@@ -16,9 +16,9 @@ namespace WindowsFormsTractor
 
         MultiLevelParking parking;
 
-        ///Количествоуровней-парковок
-
+        ///Количество уровней-парковок
         private const int countLevel = 5;
+
         public FormParking()
         {
             InitializeComponent();
@@ -122,11 +122,6 @@ Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
         ///<param name="sender"></param>
         ///<param name="e"></param>
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
-
-        private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Draw();
         }

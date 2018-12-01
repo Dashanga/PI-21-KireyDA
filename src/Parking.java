@@ -57,13 +57,13 @@ public class Parking<T extends Vehicle> {
 	// / <param name="p">Парковка</param>
 	// / <param name="car">Добавляемый автомобиль</param>
 	// / <returns></returns>
-	public int addCar(Parking<T> p, T car) {
-		for (int i = 0; i < p._places.length; i++) {
-			if (p.CheckFreePlace(i)) {
-				p._places[i] = car;
-				p._places[i].SetPosition(25 + i / 5 * p._placeSizeWidth + 5, i
-						% 5 * p._placeSizeHeight + 30, p.getPictureWidth(),
-						p.getPictureHeight());
+	public int addCar(T car) {
+		for (int i = 0; i < _places.length; i++) {
+			if (CheckFreePlace(i)) {
+				_places[i] = car;
+				_places[i].SetPosition(25 + i / 5 * _placeSizeWidth + 5, i
+						% 5 * _placeSizeHeight + 30, getPictureWidth(),
+						getPictureHeight());
 				return i;
 			}
 		}
@@ -76,13 +76,13 @@ public class Parking<T extends Vehicle> {
 	// / <param name="index">Индекс места, с которого пытаемся извлечь
 	// объект</param>
 	// / <returns></returns>
-	public T removeCar(Parking<T> p, int index) {
-		if (index < 0 || index > p._places.length) {
+	public T removeCar(int index) {
+		if (index < 0 || index > _places.length) {
 			return null;
 		}
-		if (!p.CheckFreePlace(index)) {
-			T car = p._places[index];
-			p._places[index] = null;
+		if (!CheckFreePlace(index)) {
+			T car = _places[index];
+			_places[index] = null;
 			return car;
 		}
 		return null;
