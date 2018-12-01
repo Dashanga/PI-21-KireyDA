@@ -34,6 +34,19 @@ namespace WindowsFormsTractor
             KovshBack = kovsh2;
         }
 
+        public TractorExkavator(string info) : base(info)
+{
+            string[] strs = info.Split(';');
+            if (strs.Length == 7)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Kovsh = Convert.ToBoolean(strs[4]);
+                KovshBack = Convert.ToBoolean(strs[5]);
+            }
+        }
         public override void DrawCar(Graphics g)
         {
             if (Kovsh)
@@ -60,6 +73,12 @@ namespace WindowsFormsTractor
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + Kovsh + ";" +
+            KovshBack;
         }
     }
 }

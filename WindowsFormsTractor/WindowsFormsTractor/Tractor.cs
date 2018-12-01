@@ -42,7 +42,22 @@ namespace WindowsFormsTractor
             Weight = weight;             
             MainColor = mainColor;
         }
-      
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public Tractor(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
         /// Изменение направления пермещения
         /// <param name="direction">Направление</param> 
         public override void MoveTransport(Direction direction)
@@ -91,6 +106,11 @@ namespace WindowsFormsTractor
             g.FillEllipse(spoiler, _startPosX, _startPosY + 15, 12, 12);
             spoiler = new SolidBrush(MainColor);
             g.FillRectangle(spoiler, _startPosX + 3 , _startPosY - 10, 7, 15);
+        }
+
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }
