@@ -17,6 +17,7 @@ public class FormParking {
 
 	public JFrame frame;
 	private Panel_pictureBoxParking panel;
+	private static final Panel_pictureBoxTractor pictureBoxTakeCar = new Panel_pictureBoxTractor();
 	private JTextField maskedTextBox;
 	
 	/// Объект от класса-парковки         
@@ -87,13 +88,13 @@ public class FormParking {
 		button1.setBounds(552, 11, 204, 23);
 		panel_main.add(button1);
 		
-		JLabel pictureBoxTakeCar = new JLabel("");
-		pictureBoxTakeCar.setBounds(527, 333, 251, 80);
+		pictureBoxTakeCar.setBounds(527, 305, 251, 80);
 		panel_main.add(pictureBoxTakeCar);
+		pictureBoxTakeCar.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_1.setBounds(527, 229, 251, 104);
+		panel_1.setBounds(527, 201, 251, 104);
 		panel_main.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -101,9 +102,21 @@ public class FormParking {
 		label_1.setBounds(33, 30, 58, 20);
 		panel_1.add(label_1);
 		
-		JButton button3 = new JButton("\u0417\u0430\u0431\u0440\u0430\u0442\u044C");
-		button3.setBounds(32, 70, 188, 23);
-		panel_1.add(button3);
+		JButton buttonTakeCar = new JButton("\u0417\u0430\u0431\u0440\u0430\u0442\u044C");
+		buttonTakeCar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Vehicle car = parking.removeCar(parking, Integer.parseInt(maskedTextBox.getText()));
+                if (car != null)
+                {
+                    car.SetPosition(50, 50, pictureBoxTakeCar.getWidth(), pictureBoxTakeCar.getHeight());
+                    pictureBoxTakeCar.addCar(car);
+                }
+                Draw();
+                pictureBoxTakeCar.repaint();
+            }
+		});
+		buttonTakeCar.setBounds(32, 70, 188, 23);
+		panel_1.add(buttonTakeCar);
 		
 		maskedTextBox = new JTextField();
 		maskedTextBox.setBounds(92, 30, 33, 20);
