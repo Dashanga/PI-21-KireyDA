@@ -15,7 +15,7 @@ namespace WindowsFormsTractor
 
         ///Сколько мест на каждом уровне
 
-        private const int countPlaces = 20;
+        private const int countPlaces = 15;
 
         /// <summary>
         /// Ширина окна отрисовки
@@ -61,7 +61,7 @@ namespace WindowsFormsTractor
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -80,27 +80,26 @@ namespace WindowsFormsTractor
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            var car = level[i];
-                            if (car != null)
+                            try
                             {
-                                //если место не пустое
+                                var car = level[i];
                                 //Записываем тип мшаины
-                                if (car.GetType().Name == "Tractor")
+                                if (car.GetType().Name == "Car")
                                 {
-                                    WriteToFile(i + ":Tractor:", fs);
+                                    WriteToFile(i + ":Car:", fs);
                                 }
-                                if (car.GetType().Name == "TractorExkavator")
+                                if (car.GetType().Name == "SportCar")
                                 {
-                                    WriteToFile(i + ":TractorExkavator:", fs);
+                                    WriteToFile(i + ":SportCar:", fs);
                                 }
                                 //Записываемые параметры
                                 WriteToFile(car + Environment.NewLine, fs);
                             }
+                            finally { }
                         }
                     }
                 }
             }
-            return true;
         }
 
         /// <summary>
@@ -118,11 +117,11 @@ namespace WindowsFormsTractor
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             string bufferTextFromFile = "";
             using (FileStream fs = new FileStream(filename, FileMode.Open))
@@ -152,7 +151,7 @@ namespace WindowsFormsTractor
             else
             {
                 //если нет такой записи, то это не те данные
-                return false;
+                throw new Exception("Неверный формат файла");
             }
             int counter = -1;
             ITransport tractor = null;
@@ -181,7 +180,6 @@ namespace WindowsFormsTractor
                 }
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = tractor;
             }
-            return true;
         }
     }
 }
