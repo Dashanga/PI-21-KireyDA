@@ -10,13 +10,13 @@ public class Panel_pictureBoxTractor extends JPanel {
 		setBounds(0, 28, 780, 485);
 	}
 	
-	public void addCar(Tractor t){
+	public void addTractor(Tractor t){
 		this.tractor = t;
 	}
 	
 	public void paint(Graphics gr) {
 		super.paint(gr);
 		if(tractor != null)
-			tractor.DrawCar(gr);
+			tractor.DrawTractor(gr);
 	}
 }

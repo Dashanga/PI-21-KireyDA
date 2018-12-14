@@ -48,7 +48,7 @@ public class TractorForm {
 			public void actionPerformed(ActionEvent arg0) {
 				tractor = new Tractor(100 + (int)(Math.random() * 300), 1000 + (float)(Math.random() * 2000), Color.BLUE);
 				tractor.SetPosition(70, 65, panel.getWidth(),panel.getHeight());
-				panel.addCar(tractor);
+				panel.addTractor(tractor);
 				Draw();
 			}
 		});
@@ -83,7 +83,6 @@ public class TractorForm {
 			public void actionPerformed(ActionEvent e) {
 				tractor.MoveTransport(Direction.Down);
 				Draw();
-				
 			}
 		});
 		buttonDown.setBounds(686, 538, 49, 23);
