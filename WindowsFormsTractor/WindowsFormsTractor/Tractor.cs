@@ -40,34 +40,23 @@ namespace WindowsFormsTractor
         /// Дополнительный цвет    
         public Color DopColor { private set; get; } 
 
-                
-        /// Признак наличия переднего спойлера   
-        public bool FrontSpoiler { private set; get; }
-       
-        /// Признак наличия боковых спойлеров       
-        public bool SideSpoiler { private set; get; }
-       
-        /// Признак наличия заднего спойлера          
-        public bool BackSpoiler { private set; get; } 
-         
+        public bool Kovsh { private set; get; }
+
+
+
         /// Конструктор         
         /// <param name="maxSpeed">Максимальная скорость</param>         
         /// <param name="weight">Вес автомобиля</param>         
         /// <param name="mainColor">Основной цвет кузова</param>         
-        /// <param name="dopColor">Дополнительный цвет</param>         
-        /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>         
-        /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
-        /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
+        /// <param name="dopColor">Дополнительный цвет</param>
         ///        
-        public Tractor(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontSpoiler, bool sideSpoiler, bool backSpoiler)
+        public Tractor(int maxSpeed, float weight, Color mainColor, Color dopColor, bool kovsh)
         {             
             MaxSpeed = maxSpeed;             
             Weight = weight;             
             MainColor = mainColor;            
-            DopColor = dopColor;             
-            FrontSpoiler = frontSpoiler;             
-            SideSpoiler = sideSpoiler;             
-            BackSpoiler = backSpoiler;
+            DopColor = dopColor;
+            Kovsh = kovsh;        
         }
       
     /// Установка позиции автомобиля       
@@ -121,7 +110,7 @@ namespace WindowsFormsTractor
 
         /// Отрисовка автомобиля
         /// <param name="g"></param> 
-        public void DrawCar(Graphics g)
+        public void DrawTractor(Graphics g)
         {
 
             Brush spoiler = new SolidBrush(Color.Yellow);
