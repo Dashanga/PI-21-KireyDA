@@ -9,8 +9,6 @@ namespace WindowsFormsTractor
 {
     class Tractor
     {
-        
-
         /// Левая координата отрисовки автомобиля    
         private float _startPosX; 
      
@@ -24,10 +22,10 @@ namespace WindowsFormsTractor
         private int _pictureHeight; 
         
         /// Ширина отрисовки автомобиля  
-        private const int carWidth = 72; 
+        private const int tractorWidth = 72; 
         
         /// Ширина отрисовки автомобиля  
-        private const int carHeight = 42; 
+        private const int tractorHeight = 42; 
   
         /// Максимальная скорость       
         public int MaxSpeed { private set; get; } 
@@ -79,7 +77,7 @@ namespace WindowsFormsTractor
             float step = MaxSpeed * 130 / Weight; switch (direction)
             {                 // вправо                 
                 case Direction.Right:
-                    if (_startPosX + step < _pictureWidth - carWidth)
+                    if (_startPosX + step < _pictureWidth - tractorWidth)
                     {
                         _startPosX += step;
                     }
@@ -100,7 +98,7 @@ namespace WindowsFormsTractor
                     break;
                 //вниз                 
                 case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - carHeight)
+                    if (_startPosY + step < _pictureHeight - tractorHeight)
                     {
                         _startPosY += step;
                     }
