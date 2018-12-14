@@ -13,9 +13,9 @@ class Tractor {
     protected int _startPosY;
     
 	// Длина отрисовки трактора
-	private int carWidth = 72;
+	private int tractorWidth = 72;
 	// Ширина отрисовки трактора
-	private int carHeight = 42;
+	private int tractorHeight = 42;
 	       
     // Ширина окна отрисовки         
     protected int _pictureWidth;
@@ -27,18 +27,18 @@ class Tractor {
     public int getMaxSpeed() {
     	return MaxSpeed;
     }
-//    private void setMaxSpeed(int value) {
-//    	MaxSpeed = value;
-//    }
+    private void setMaxSpeed(int value) {
+    	MaxSpeed = value;
+    }
     
     /// Вес трактора         
     private float Weight;
     public float getWeight() { 
     	return Weight; 
     }
-//    private void setWeight(float value) {
-//    	Weight = value;
-//    }
+    private void setWeight(float value) {
+    	Weight = value;
+    }
 
     /*
      * Конструктор
@@ -51,8 +51,8 @@ class Tractor {
         /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
      */
 	public Tractor(int maxSpeed, float weight, Color mainColor) {
-        MaxSpeed = maxSpeed; //или setMaxSpeed(maxSpeed);             
-        Weight = weight; //или setWeight(weight); 
+        setMaxSpeed(maxSpeed);             
+        setWeight(weight); 
 	}
 
     /// Установка позиции автомобиля       
@@ -114,7 +114,7 @@ class Tractor {
 	}
 
 	//Отрисовка трактора
-	public void DrawCar(Graphics g) {
+	public void DrawTractor(Graphics g) {
 		g.setColor(Color.yellow);
 		g.fillRect(_startPosX + 1, _startPosY + 5, 50, 15);
         g.fillRect(_startPosX - 20, _startPosY - 15, 25, 6);
