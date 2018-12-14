@@ -39,7 +39,7 @@ class TractorExkavator extends Tractor {
     }
 
     @Override
-    public void DrawCar(Graphics g)
+    public void DrawTractor(Graphics g)
     {
         if (Kovsh)
         {
@@ -57,6 +57,6 @@ class TractorExkavator extends Tractor {
             g.setColor(Color.BLACK);
             g.fillRect(_startPosX + 60, _startPosY+5, 15, 15);
         }
-        super.DrawCar(g);
+        super.DrawTractor(g);
     }
 }

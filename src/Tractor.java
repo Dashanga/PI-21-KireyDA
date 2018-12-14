@@ -42,9 +42,6 @@ class Tractor extends Vehicle {
         /// <param name="weight">Вес автомобиля</param>         
         /// <param name="mainColor">Основной цвет кузова</param>         
         /// <param name="dopColor">Дополнительный цвет</param>         
-        /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>         
-        /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
-        /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
      */
 	public Tractor(int maxSpeed, float weight, Color mainColor) {
         setMaxSpeed(maxSpeed);             
