@@ -23,6 +23,6 @@ namespace WindowsFormsTractor
         /// Отрисовка автомобиля         
         /// </summary>         
         /// <param name="g"></param>         
-        void DrawCar(Graphics g);
+        void DrawTractor(Graphics g);
     }
 }

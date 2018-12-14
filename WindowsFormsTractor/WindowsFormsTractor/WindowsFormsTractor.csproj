@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Direction.cs" />
     <Compile Include="ITransport.cs" />
     <Compile Include="TractorExkavator.cs" />
     <Compile Include="TractorForm.cs">

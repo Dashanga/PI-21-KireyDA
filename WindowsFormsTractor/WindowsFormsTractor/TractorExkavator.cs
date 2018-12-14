@@ -33,7 +33,7 @@ namespace WindowsFormsTractor
             KovshBack = kovsh2;
         }
 
-        public override void DrawCar(Graphics g)
+        public override void DrawTractor(Graphics g)
         {
             if (Kovsh)
             {
@@ -51,7 +51,7 @@ namespace WindowsFormsTractor
                 spoiler = new SolidBrush(Color.Black);
                 g.FillRectangle(spoiler, _startPosX + 60, _startPosY+5, 15, 15);
             }
-            base.DrawCar(g);
+            base.DrawTractor(g);
         }
     }
 }

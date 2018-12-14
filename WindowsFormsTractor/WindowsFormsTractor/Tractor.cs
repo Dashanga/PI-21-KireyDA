@@ -7,24 +7,15 @@ using System.Drawing;
 
 namespace WindowsFormsTractor
 {
-    public enum Direction
-    {
-        Up,
-
-        Down,
-
-        Left,
-
-        Right
-    }
+   
     class Tractor : Vehicle
     {
         
         /// Ширина отрисовки автомобиля  
-        private const int carWidth = 72; 
+        private const int tractorWidth = 72; 
         
         /// Ширина отрисовки автомобиля  
-        private const int carHeight = 42; 
+        private const int tractorHeight = 42; 
        
          
         /// Конструктор         
@@ -32,9 +23,6 @@ namespace WindowsFormsTractor
         /// <param name="weight">Вес автомобиля</param>         
         /// <param name="mainColor">Основной цвет кузова</param>         
         /// <param name="dopColor">Дополнительный цвет</param>         
-        /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>         
-        /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
-        /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
         ///        
         public Tractor(int maxSpeed, float weight, Color mainColor)
         {             
@@ -50,7 +38,7 @@ namespace WindowsFormsTractor
             float step = MaxSpeed * 130 / Weight; switch (direction)
             {                 // вправо                 
                 case Direction.Right:
-                    if (_startPosX + step < _pictureWidth - carWidth)
+                    if (_startPosX + step < _pictureWidth - tractorWidth)
                     {
                         _startPosX += step;
                     }
@@ -71,7 +59,7 @@ namespace WindowsFormsTractor
                     break;
                 //вниз                 
                 case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - carHeight)
+                    if (_startPosY + step < _pictureHeight - tractorHeight)
                     {
                         _startPosY += step;
                     }
@@ -81,7 +69,7 @@ namespace WindowsFormsTractor
 
         /// Отрисовка автомобиля
         /// <param name="g"></param> 
-        public override void DrawCar(Graphics g)
+        public override void DrawTractor(Graphics g)
         {
             Brush spoiler = new SolidBrush(Color.Yellow);
             g.FillRectangle(spoiler, _startPosX + 1, _startPosY + 5, 50, 15);
