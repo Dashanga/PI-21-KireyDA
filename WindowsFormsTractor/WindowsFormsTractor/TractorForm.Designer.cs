@@ -47,7 +47,6 @@
             this.pictureBoxTractor.Size = new System.Drawing.Size(884, 461);
             this.pictureBoxTractor.TabIndex = 0;
             this.pictureBoxTractor.TabStop = false;
-            this.pictureBoxTractor.Click += new System.EventHandler(this.pictureBoxTractor_Click);
             // 
             // buttonCreate
             // 
@@ -132,7 +131,6 @@
             this.Name = "TractorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tractor";
-            this.Load += new System.EventHandler(this.TractorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTractor)).EndInit();
             this.ResumeLayout(false);
 

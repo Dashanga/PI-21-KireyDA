@@ -21,16 +21,16 @@ namespace WindowsFormsTractor
 
         //Метод отрисовки машины       
         private void Draw()
-        {             
-            Bitmap bmp = new Bitmap(pictureBoxTractor.Width, pictureBoxTractor.Height);             
-            Graphics gr = Graphics.FromImage(bmp);             
-            tractor.DrawTractor(gr);             
-            pictureBoxTractor.Image = bmp;         
+        {
+            Bitmap bmp = new Bitmap(pictureBoxTractor.Width, pictureBoxTractor.Height);
+            Graphics gr = Graphics.FromImage(bmp);
+            tractor.DrawTractor(gr);
+            pictureBoxTractor.Image = bmp;
         }
 
         // Обработка нажатия кнопки "Создать" 
         /// <param name="sender"></param>         
-        /// /// <param name="e"></param> 
+        /// <param name="e"></param> 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -64,21 +64,11 @@ namespace WindowsFormsTractor
             Draw();
         }
 
-        private void pictureBoxTractor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TractorForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Random rnd = new Random(); tractor = new TractorExkavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue, Color.Yellow, true, true);
             tractor.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
             Draw();
         }
-    }
+    } 
 }
