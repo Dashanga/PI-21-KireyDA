@@ -9,8 +9,6 @@ namespace WindowsFormsTractor
 {
     class Tractor
     {
-        
-
         /// Левая координата отрисовки автомобиля    
         private float _startPosX; 
      
@@ -24,10 +22,10 @@ namespace WindowsFormsTractor
         private int _pictureHeight; 
         
         /// Ширина отрисовки автомобиля  
-        private const int carWidth = 72; 
+        private const int tractorWidth = 72; 
         
         /// Ширина отрисовки автомобиля  
-        private const int carHeight = 42; 
+        private const int tractorHeight = 42; 
   
         /// Максимальная скорость       
         public int MaxSpeed { private set; get; } 
@@ -40,34 +38,23 @@ namespace WindowsFormsTractor
         /// Дополнительный цвет    
         public Color DopColor { private set; get; } 
 
-                
-        /// Признак наличия переднего спойлера   
-        public bool FrontSpoiler { private set; get; }
-       
-        /// Признак наличия боковых спойлеров       
-        public bool SideSpoiler { private set; get; }
-       
-        /// Признак наличия заднего спойлера          
-        public bool BackSpoiler { private set; get; } 
-         
+        public bool Kovsh { private set; get; }
+
+
+
         /// Конструктор         
         /// <param name="maxSpeed">Максимальная скорость</param>         
         /// <param name="weight">Вес автомобиля</param>         
         /// <param name="mainColor">Основной цвет кузова</param>         
-        /// <param name="dopColor">Дополнительный цвет</param>         
-        /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>         
-        /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
-        /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
+        /// <param name="dopColor">Дополнительный цвет</param>
         ///        
-        public Tractor(int maxSpeed, float weight, Color mainColor, Color dopColor, bool frontSpoiler, bool sideSpoiler, bool backSpoiler)
+        public Tractor(int maxSpeed, float weight, Color mainColor, Color dopColor, bool kovsh)
         {             
             MaxSpeed = maxSpeed;             
             Weight = weight;             
             MainColor = mainColor;            
-            DopColor = dopColor;             
-            FrontSpoiler = frontSpoiler;             
-            SideSpoiler = sideSpoiler;             
-            BackSpoiler = backSpoiler;
+            DopColor = dopColor;
+            Kovsh = kovsh;        
         }
       
     /// Установка позиции автомобиля       
@@ -90,7 +77,7 @@ namespace WindowsFormsTractor
             float step = MaxSpeed * 130 / Weight; switch (direction)
             {                 // вправо                 
                 case Direction.Right:
-                    if (_startPosX + step < _pictureWidth - carWidth)
+                    if (_startPosX + step < _pictureWidth - tractorWidth)
                     {
                         _startPosX += step;
                     }
@@ -111,7 +98,7 @@ namespace WindowsFormsTractor
                     break;
                 //вниз                 
                 case Direction.Down:
-                    if (_startPosY + step < _pictureHeight - carHeight)
+                    if (_startPosY + step < _pictureHeight - tractorHeight)
                     {
                         _startPosY += step;
                     }
@@ -121,7 +108,7 @@ namespace WindowsFormsTractor
 
         /// Отрисовка автомобиля
         /// <param name="g"></param> 
-        public void DrawCar(Graphics g)
+        public void DrawTractor(Graphics g)
         {
 
             Brush spoiler = new SolidBrush(Color.Yellow);
