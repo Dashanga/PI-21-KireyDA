@@ -12,7 +12,7 @@ namespace WindowsFormsTractor
 {
     public partial class TractorForm : Form
     {
-        private ITransport car;
+        private ITransport tractor;
         /// Конструктор
         public TractorForm()
         {
@@ -21,21 +21,21 @@ namespace WindowsFormsTractor
 
         //Метод отрисовки машины       
         private void Draw()
-        {             
-            Bitmap bmp = new Bitmap(pictureBoxTractor.Width, pictureBoxTractor.Height);             
-            Graphics gr = Graphics.FromImage(bmp);             
-            car.DrawCar(gr);             
-            pictureBoxTractor.Image = bmp;         
+        {
+            Bitmap bmp = new Bitmap(pictureBoxTractor.Width, pictureBoxTractor.Height);
+            Graphics gr = Graphics.FromImage(bmp);
+            tractor.DrawTractor(gr);
+            pictureBoxTractor.Image = bmp;
         }
 
         // Обработка нажатия кнопки "Создать" 
         /// <param name="sender"></param>         
-        /// /// <param name="e"></param> 
+        /// <param name="e"></param> 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            car = new Tractor(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue);
-            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
+            tractor = new Tractor(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue);
+            tractor.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
             Draw();
         }
 
@@ -49,36 +49,26 @@ namespace WindowsFormsTractor
             switch (name)
             {
                 case "buttonUp":
-                    car.MoveTransport(Direction.Up);
+                    tractor.MoveTransport(Direction.Up);
                     break;
                 case "buttonDown":
-                    car.MoveTransport(Direction.Down);
+                    tractor.MoveTransport(Direction.Down);
                     break;
                 case "buttonLeft":
-                    car.MoveTransport(Direction.Left);
+                    tractor.MoveTransport(Direction.Left);
                     break;
                 case "buttonRight":
-                    car.MoveTransport(Direction.Right);
+                    tractor.MoveTransport(Direction.Right);
                     break;
             }
             Draw();
         }
 
-        private void pictureBoxTractor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TractorForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random(); car = new TractorExkavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue, Color.Yellow, true, true);
-            car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
+            Random rnd = new Random(); tractor = new TractorExkavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue, Color.Yellow, true, true);
+            tractor.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
             Draw();
         }
-    }
+    } 
 }
