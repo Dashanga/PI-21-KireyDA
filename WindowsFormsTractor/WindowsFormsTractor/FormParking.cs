@@ -128,14 +128,25 @@ private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
         /// <param name="car"></param>
         private void AddCar(ITransport car)
         {
-            if (car != null && listBoxLevels.SelectedIndex > -1)
+            if (listBoxLevels.SelectedIndex > -1)
             {
                 try
                 {
+                    if (car == null)
+                    {
+                        throw new NullCarException();
+                    }
+                    
                     int place = parking[listBoxLevels.SelectedIndex] + car;
                     logger.Info("Добавлен автомобиль " + car.ToString() + " на место " +
      place);
                     Draw();
+                }
+                catch (NullCarException ex)
+                {
+                    MessageBox.Show(ex.Message, "Нечего добавить", MessageBoxButtons.OK,
+
+                    MessageBoxIcon.Error);
                 }
                 catch (ParkingOverflowException ex)
                 {
