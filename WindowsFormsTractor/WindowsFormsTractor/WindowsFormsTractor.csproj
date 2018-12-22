@@ -69,7 +69,6 @@
     </Compile>
     <Compile Include="ITransport.cs" />
     <Compile Include="MultiLevelParking.cs" />
-    <Compile Include="NullCarException.cs" />
     <Compile Include="Parking.cs" />
     <Compile Include="ParkingNotFoundException.cs" />
     <Compile Include="ParkingOccupiedPlaceException.cs" />

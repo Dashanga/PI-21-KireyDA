@@ -181,18 +181,8 @@ namespace WindowsFormsTractor
 
         private void buttonOk_Click_1(object sender, EventArgs e)
         {
-            
-                try
-                {
-                    eventAddCar?.Invoke(car);
-                }
-                catch (NullCarException ex)
-                {
-                    MessageBox.Show(ex.Message, "Нечего добавить", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                }
-                Close();
-            }
-        
+            eventAddCar?.Invoke(car);
+            Close();
+        }
     }
 }
