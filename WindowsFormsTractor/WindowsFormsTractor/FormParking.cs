@@ -34,13 +34,13 @@ namespace WindowsFormsTractor
         /// Обработка нажатия кнопки "Припарковать автомобиль"              
         /// <param name="sender"></param>         
         /// <param name="e"></param>         	
-        private void buttonSetCar_Click(object sender, EventArgs e)
+        private void buttonSetTractor_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                var car = new Tractor(100, 1000, dialog.Color);
-                int place = parking + car;
+                var tractor = new Tractor(100, 1000, dialog.Color);
+                int place = parking + tractor;
                 Draw();
             }
         }
@@ -48,7 +48,7 @@ namespace WindowsFormsTractor
         /// Обработка нажатия кнопки "Припарковать гоночный автомобиль" 
         /// <param name="sender"></param>         
         /// <param name="e"></param>         
-        private void buttonSetSportCar_Click(object sender, EventArgs e)
+        private void buttonSetSportTractor_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -56,9 +56,9 @@ namespace WindowsFormsTractor
                 ColorDialog dialogDop = new ColorDialog();
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new TractorExkavator(100, 1000, dialog.Color,
+                    var tractor = new TractorExkavator(100, 1000, dialog.Color,
                     dialogDop.Color, true, true);
-                    int place = parking + car;
+                    int place = parking + tractor;
                     Draw();
                 }
             }
@@ -67,23 +67,23 @@ namespace WindowsFormsTractor
         /// Обработка нажатия кнопки "Забрать"         
         /// <param name="sender"></param>         
         /// <param name="e"></param>         
-        private void buttonTakeCar_Click(object sender, EventArgs e)
+        private void buttonTakeTractor_Click(object sender, EventArgs e)
         {
             if (maskedTextBox.Text != "")
             {
-                var car = parking - Convert.ToInt32(maskedTextBox.Text);
-                if (car != null)
+                var tractor = parking - Convert.ToInt32(maskedTextBox.Text);
+                if (tractor != null)
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                    Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
                     Graphics gr = Graphics.FromImage(bmp);
-                    car.SetPosition(50, 50, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                    car.DrawTractor(gr);
-                    pictureBoxTakeCar.Image = bmp;
+                    tractor.SetPosition(50, 50, pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
+                    tractor.DrawTractor(gr);
+                    pictureBoxTakeTractor.Image = bmp;
                 }
                 else
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                    pictureBoxTakeCar.Image = bmp;
+                    Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
+                    pictureBoxTakeTractor.Image = bmp;
                 }
                 Draw();
             }

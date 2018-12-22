@@ -32,13 +32,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTakeTractor = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeTractor)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxParking
@@ -58,7 +58,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Припарковать трактор";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.buttonSetCar_Click);
+            this.button1.Click += new System.EventHandler(this.buttonSetTractor_Click);
             // 
             // button
             // 
@@ -68,11 +68,11 @@
             this.button.TabIndex = 2;
             this.button.Text = "Припарковать трактор-экскаватор";
             this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.buttonSetSportCar_Click);
+            this.button.Click += new System.EventHandler(this.buttonSetSportTractor_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBoxTakeCar);
+            this.groupBox1.Controls.Add(this.pictureBoxTakeTractor);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.maskedTextBox);
             this.groupBox1.Controls.Add(this.label1);
@@ -83,13 +83,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Забрать машину";
             // 
-            // pictureBoxTakeCar
+            // pictureBoxTakeTractor
             // 
-            this.pictureBoxTakeCar.Location = new System.Drawing.Point(0, 75);
-            this.pictureBoxTakeCar.Name = "pictureBoxTakeCar";
-            this.pictureBoxTakeCar.Size = new System.Drawing.Size(180, 100);
-            this.pictureBoxTakeCar.TabIndex = 3;
-            this.pictureBoxTakeCar.TabStop = false;
+            this.pictureBoxTakeTractor.Location = new System.Drawing.Point(0, 75);
+            this.pictureBoxTakeTractor.Name = "pictureBoxTakeTractor";
+            this.pictureBoxTakeTractor.Size = new System.Drawing.Size(180, 100);
+            this.pictureBoxTakeTractor.TabIndex = 3;
+            this.pictureBoxTakeTractor.TabStop = false;
             // 
             // button3
             // 
@@ -99,7 +99,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Забрать";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.buttonTakeCar_Click);
+            this.button3.Click += new System.EventHandler(this.buttonTakeTractor_Click);
             // 
             // maskedTextBox
             // 
@@ -131,7 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeTractor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,7 +142,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBoxTakeCar;
+        private System.Windows.Forms.PictureBox pictureBoxTakeTractor;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label label1;
