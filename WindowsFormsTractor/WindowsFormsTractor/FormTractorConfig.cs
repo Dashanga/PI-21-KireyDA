@@ -15,11 +15,11 @@ namespace WindowsFormsTractor
         /// <summary>
         /// Переменная-выбранная машина
         /// </summary>
-        ITransport car = null;
+        ITransport tractor = null;
         /// <summary>
         /// Событие
         /// </summary>
-        private event carDelegate eventAddCar;
+        private event tractorDelegate eventAddTractor;
 
         public FormTractorConfig()
         {
@@ -37,30 +37,30 @@ namespace WindowsFormsTractor
         /// <summary>
         /// Отрисовать машину
         /// </summary>
-        private void DrawCar()
+        private void DrawTractor()
         {
-            if (car != null)
+            if (tractor != null)
             {
-                Bitmap bmp = new Bitmap(pictureBoxCar.Width, pictureBoxCar.Height);
+                Bitmap bmp = new Bitmap(pictureBoxTractor.Width, pictureBoxTractor.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                car.SetPosition(30, 20, pictureBoxCar.Width, pictureBoxCar.Height);
-                car.DrawTractor(gr);
-                pictureBoxCar.Image = bmp;
+                tractor.SetPosition(30, 20, pictureBoxTractor.Width, pictureBoxTractor.Height);
+                tractor.DrawTractor(gr);
+                pictureBoxTractor.Image = bmp;
             }
         }
         /// <summary>
         /// Добавление события
         /// </summary>
         /// <param name="ev"></param>
-        public void AddEvent(carDelegate ev)
+        public void AddEvent(tractorDelegate ev)
         {
-            if (eventAddCar == null)
+            if (eventAddTractor == null)
             {
-                eventAddCar = new carDelegate(ev);
+                eventAddTractor = new tractorDelegate(ev);
             }
             else
             {
-                eventAddCar += ev;
+                eventAddTractor += ev;
             }
         }
         /// <summary>
@@ -68,9 +68,9 @@ namespace WindowsFormsTractor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void labelCar_MouseDown(object sender, MouseEventArgs e)
+        private void labelTractor_MouseDown(object sender, MouseEventArgs e)
         {
-            labelCar.DoDragDrop(labelCar.Text, DragDropEffects.Move |
+            labelTractor.DoDragDrop(labelTractor.Text, DragDropEffects.Move |
             DragDropEffects.Copy);
         }
         /// <summary>
@@ -78,9 +78,9 @@ namespace WindowsFormsTractor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void labelSportCar_MouseDown(object sender, MouseEventArgs e)
+        private void labelTractorExkavator_MouseDown(object sender, MouseEventArgs e)
         {
-            labelSportCar.DoDragDrop(labelSportCar.Text, DragDropEffects.Move |
+            labelTractorExkavator.DoDragDrop(labelTractorExkavator.Text, DragDropEffects.Move |
             DragDropEffects.Copy);
         }
         /// <summary>
@@ -88,7 +88,7 @@ namespace WindowsFormsTractor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void panelCar_DragEnter(object sender, DragEventArgs e)
+        private void panelTractor_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Text))
             {
@@ -104,18 +104,18 @@ namespace WindowsFormsTractor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void panelCar_DragDrop(object sender, DragEventArgs e)
+        private void panelTractor_DragDrop(object sender, DragEventArgs e)
         {
             switch (e.Data.GetData(DataFormats.Text).ToString())
             {
                 case "Обычный трактор":
-                    car = new Tractor(100, 500, Color.White);
+                    tractor = new Tractor(100, 500, Color.White);
                     break;
                 case "Трактор-экскаватор":
-                    car = new TractorExkavator(100, 500, Color.White, Color.Black, true, true);
+                    tractor = new TractorExkavator(100, 500, Color.White, Color.Black, true, true);
                     break;
             }
-            DrawCar();
+            DrawTractor();
         }
         /// <summary>
         /// Отправляем цвет с панели
@@ -150,10 +150,10 @@ namespace WindowsFormsTractor
         /// <param name="e"></param>
         private void labelBaseColor_DragDrop(object sender, DragEventArgs e)
         {
-            if (car != null)
+            if (tractor != null)
             {
-                car.SetMainColor((Color)e.Data.GetData(typeof(Color)));
-                DrawCar();
+                tractor.SetMainColor((Color)e.Data.GetData(typeof(Color)));
+                DrawTractor();
             }
         }
         /// <summary>
@@ -163,12 +163,12 @@ namespace WindowsFormsTractor
         /// <param name="e"></param>
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
-            if (car != null)
+            if (tractor != null)
             {
-                if (car is TractorExkavator)
+                if (tractor is TractorExkavator)
                 {
-                    (car as TractorExkavator).SetDopColor((Color)e.Data.GetData(typeof(Color)));
-                    DrawCar();
+                    (tractor as TractorExkavator).SetDopColor((Color)e.Data.GetData(typeof(Color)));
+                    DrawTractor();
                 }
             }
         }
@@ -181,7 +181,7 @@ namespace WindowsFormsTractor
 
         private void buttonOk_Click_1(object sender, EventArgs e)
         {
-            eventAddCar?.Invoke(car);
+            eventAddTractor?.Invoke(tractor);
             Close();
         }
     }

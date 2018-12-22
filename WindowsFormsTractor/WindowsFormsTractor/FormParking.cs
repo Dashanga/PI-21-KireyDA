@@ -94,21 +94,21 @@ pictureBoxParking.Height);
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonSetCar_Click_1(object sender, EventArgs e)
+        private void buttonSetTractor_Click_1(object sender, EventArgs e)
         {
             form = new FormTractorConfig();
-            form.AddEvent(AddCar);
+            form.AddEvent(AddTractor);
             form.Show();
         }
         /// <summary>
         /// Метод добавления машины
         /// </summary>
-        /// <param name="car"></param>
-        private void AddCar(ITransport car)
+        /// <param name="tractor"></param>
+        private void AddTractor(ITransport tractor)
         {
-            if (car != null && listBoxLevels.SelectedIndex > -1)
+            if (tractor != null && listBoxLevels.SelectedIndex > -1)
             {
-                int place = parking[listBoxLevels.SelectedIndex] + car;
+                int place = parking[listBoxLevels.SelectedIndex] + tractor;
                 if (place > -1)
                 {
                     Draw();
