@@ -55,12 +55,12 @@ public class Parking<T extends Vehicle> {
 	// / Перегрузка оператора сложения
 	// / Логика действия: на парковку добавляется автомобиль
 	// / <param name="p">Парковка</param>
-	// / <param name="car">Добавляемый автомобиль</param>
+	// / <param name="tractor">Добавляемый автомобиль</param>
 	// / <returns></returns>
-	public int addCar(T car) {
+	public int addTractor(T tractor) {
 		for (int i = 0; i < _places.length; i++) {
 			if (CheckFreePlace(i)) {
-				_places[i] = car;
+				_places[i] = tractor;
 				_places[i].SetPosition(25 + i / 5 * _placeSizeWidth + 5, i
 						% 5 * _placeSizeHeight + 30, getPictureWidth(),
 						getPictureHeight());
@@ -76,14 +76,14 @@ public class Parking<T extends Vehicle> {
 	// / <param name="index">Индекс места, с которого пытаемся извлечь
 	// объект</param>
 	// / <returns></returns>
-	public T removeCar(int index) {
+	public T removeTractor(int index) {
 		if (index < 0 || index > _places.length) {
 			return null;
 		}
 		if (!CheckFreePlace(index)) {
-			T car = _places[index];
+			T tractor = _places[index];
 			_places[index] = null;
-			return car;
+			return tractor;
 		}
 		return null;
 	}
@@ -102,7 +102,7 @@ public class Parking<T extends Vehicle> {
 		DrawMarking(g);
 		for (int i = 0; i < _places.length; i++) {
 			if (!CheckFreePlace(i)) {// если место не пустое
-				_places[i].DrawCar(g);
+				_places[i].DrawTractor(g);
 			}
 		}
 	}

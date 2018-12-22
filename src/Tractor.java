@@ -3,9 +3,9 @@ import java.awt.Graphics;
 
 class Tractor extends Vehicle {
 	// Длина отрисовки трактора
-	private int carWidth = 72;
+	private int tractorWidth = 72;
 	// Ширина отрисовки трактора
-	private int carHeight = 42;
+	private int tractorHeight = 42;
 	
 
     // Максимальная скорость  
@@ -14,9 +14,9 @@ class Tractor extends Vehicle {
     public int getMaxSpeed() {
     	return MaxSpeed;
     }
-//    private void setMaxSpeed(int value) {
-//    	MaxSpeed = value;
-//    }
+    private void setMaxSpeed(int value) {
+    	MaxSpeed = value;
+    }
     
     /// Вес трактора         
     private float Weight;
@@ -24,9 +24,9 @@ class Tractor extends Vehicle {
     public float getWeight() { 
     	return Weight; 
     }
-//    private void setWeight(float value) {
-//    	Weight = value;
-//    }
+    private void setWeight(float value) {
+    	Weight = value;
+    }
 	
 
 	// Основной цвет
@@ -42,13 +42,10 @@ class Tractor extends Vehicle {
         /// <param name="weight">Вес автомобиля</param>         
         /// <param name="mainColor">Основной цвет кузова</param>         
         /// <param name="dopColor">Дополнительный цвет</param>         
-        /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>         
-        /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
-        /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
      */
 	public Tractor(int maxSpeed, float weight, Color mainColor) {
-        MaxSpeed = maxSpeed; //или setMaxSpeed(maxSpeed);             
-        Weight = weight; //или setWeight(weight);          
+        setMaxSpeed(maxSpeed);             
+        setWeight(weight); 
         MainColor = mainColor;      
 	}
 	
@@ -98,7 +95,7 @@ class Tractor extends Vehicle {
 	}
 
 	//Отрисовка трактора
-	public void DrawCar(Graphics g) {
+	public void DrawTractor(Graphics g) {
 		g.setColor(Color.yellow);
 		g.fillRect(_startPosX + 1, _startPosY + 5, 50, 15);
 		

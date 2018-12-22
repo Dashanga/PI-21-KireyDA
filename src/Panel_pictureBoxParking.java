@@ -21,6 +21,6 @@ public class Panel_pictureBoxParking extends JPanel {
 		super.paint(gr);
 		parking.Draw(gr);
 		if(tractor != null)
-			tractor.DrawCar(gr);
+			tractor.DrawTractor(gr);
 	}
 }
