@@ -98,7 +98,7 @@ namespace WindowsFormsTractor
             {
                 if (!CheckFreePlace(i))
                 {//если место не пустое                     
-                    _places[i].DrawCar(g);
+                    _places[i].DrawTractor(g);
                 }
             }
         }
