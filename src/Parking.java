@@ -55,12 +55,12 @@ public class Parking<T extends Vehicle> {
 	// / Перегрузка оператора сложения
 	// / Логика действия: на парковку добавляется автомобиль
 	// / <param name="p">Парковка</param>
-	// / <param name="car">Добавляемый автомобиль</param>
+	// / <param name="tractor">Добавляемый автомобиль</param>
 	// / <returns></returns>
-	public int addCar(Parking<T> p, T car) {
+	public int addTractor(Parking<T> p, T tractor) {
 		for (int i = 0; i < p._places.length; i++) {
 			if (p.CheckFreePlace(i)) {
-				p._places[i] = car;
+				p._places[i] = tractor;
 				p._places[i].SetPosition(25 + i / 5 * p._placeSizeWidth + 5, i
 						% 5 * p._placeSizeHeight + 30, p.getPictureWidth(),
 						p.getPictureHeight());
@@ -76,14 +76,14 @@ public class Parking<T extends Vehicle> {
 	// / <param name="index">Индекс места, с которого пытаемся извлечь
 	// объект</param>
 	// / <returns></returns>
-	public T removeCar(Parking<T> p, int index) {
+	public T removeTractor(Parking<T> p, int index) {
 		if (index < 0 || index > p._places.length) {
 			return null;
 		}
 		if (!p.CheckFreePlace(index)) {
-			T car = p._places[index];
+			T tractor = p._places[index];
 			p._places[index] = null;
-			return car;
+			return tractor;
 		}
 		return null;
 	}
@@ -102,7 +102,7 @@ public class Parking<T extends Vehicle> {
 		DrawMarking(g);
 		for (int i = 0; i < _places.length; i++) {
 			if (!CheckFreePlace(i)) {// если место не пустое
-				_places[i].DrawCar(g);
+				_places[i].DrawTractor(g);
 			}
 		}
 	}
