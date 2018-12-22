@@ -68,7 +68,7 @@
             this.button.TabIndex = 2;
             this.button.Text = "Припарковать трактор-экскаватор";
             this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.buttonSetSportTractor_Click);
+            this.button.Click += new System.EventHandler(this.buttonSetTractorExkavator_Click);
             // 
             // groupBox1
             // 

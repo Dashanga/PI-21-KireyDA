@@ -48,7 +48,7 @@ namespace WindowsFormsTractor
         /// Обработка нажатия кнопки "Припарковать гоночный автомобиль" 
         /// <param name="sender"></param>         
         /// <param name="e"></param>         
-        private void buttonSetSportTractor_Click(object sender, EventArgs e)
+        private void buttonSetTractorExkavator_Click(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
