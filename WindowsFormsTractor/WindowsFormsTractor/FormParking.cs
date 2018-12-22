@@ -47,15 +47,15 @@ Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
 
         ///<param name="sender"></param>
         ///<param name="e"></param>
-        private void buttonSetCar_Click(object sender, EventArgs e)
+        private void buttonSetTractor_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
                 ColorDialog dialog = new ColorDialog();
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var car = new Tractor(100, 1000, dialog.Color);
-                    int place = parking[listBoxLevels.SelectedIndex] + car;
+                    var tractor = new Tractor(100, 1000, dialog.Color);
+                    int place = parking[listBoxLevels.SelectedIndex] + tractor;
                     if (place == -1)
                     {
                         MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -68,7 +68,7 @@ Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
         ///Обработка нажатия кнопки "Припарковать гоночный автомобиль"
         ///<param name="sender"></param>
         ///<param name="e"></param>
-        private void buttonSetSportCar_Click(object sender, EventArgs e)
+        private void buttonSetTractorExkavator_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
@@ -78,8 +78,8 @@ Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
                     ColorDialog dialogDop = new ColorDialog();
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
-                        var car = new TractorExkavator(100, 1000, dialog.Color, dialogDop.Color, true, true);
-                        int place = parking[listBoxLevels.SelectedIndex] + car;
+                        var tractor = new TractorExkavator(100, 1000, dialog.Color, dialogDop.Color, true, true);
+                        int place = parking[listBoxLevels.SelectedIndex] + tractor;
                         if (place == -1)
                         {
                             MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -93,25 +93,25 @@ Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
         ///Обработканажатиякнопки"Забрать"
         ///<param name="sender"></param>
         ///<param name="e"></param>
-        private void buttonTakeCar_Click(object sender, EventArgs e)
+        private void buttonTakeTractor_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
                 if (maskedTextBox.Text != "")
                 {
-                    var car = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
-                    if (car != null)
+                    var tractor = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
+                    if (tractor != null)
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                        Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(25, 25, pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                        car.DrawCar(gr);
-                        pictureBoxTakeCar.Image = bmp;
+                        tractor.SetPosition(25, 25, pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
+                        tractor.DrawTractor(gr);
+                        pictureBoxTakeTractor.Image = bmp;
                     }
                     else
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                        pictureBoxTakeCar.Image = bmp;
+                        Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
+                        pictureBoxTakeTractor.Image = bmp;
                     }
                     Draw();
                 }
