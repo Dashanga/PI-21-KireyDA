@@ -55,7 +55,7 @@ abstract class Vehicle implements ITransport {
         _pictureHeight = height;
     }
 
-    public abstract void DrawCar(Graphics g);
+    public abstract void DrawTractor(Graphics g);
 
     public abstract void MoveTransport(Direction direction);
 }
