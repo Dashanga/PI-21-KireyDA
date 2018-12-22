@@ -52,8 +52,8 @@ namespace WindowsFormsTractor
             if (listBoxLevels.SelectedIndex > -1)
             {//если выбран один из пуктов в listBox (при старте программы ни один пункт
        //не будет выбран и может возникнуть ошибка, если мы попытаемся обратиться к элементу listBox)
-Bitmap bmp = new Bitmap(pictureBoxParking.Width,
-pictureBoxParking.Height);
+                Bitmap bmp = new Bitmap(pictureBoxParking.Width,
+                pictureBoxParking.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 parking[listBoxLevels.SelectedIndex].Draw(gr);
                 pictureBoxParking.Image = bmp;
@@ -142,6 +142,11 @@ private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 }
+                catch (ParkingAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Неизвестная ошибка",
@@ -192,6 +197,20 @@ private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
                 }
                 Draw();
             }
+        }
+
+        /// <summary>
+        /// Обработка нажатия кнопки "Сортировка"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            parking.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
         }
     }
 }
