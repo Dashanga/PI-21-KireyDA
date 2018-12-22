@@ -21,9 +21,9 @@ namespace WindowsFormsTractor
         /// </summary>
         FormTractorConfig form;
 
-        ///Количествоуровней-парковок
-
+        ///Количество уровней-парковок
         private const int countLevel = 5;
+
         public FormParking()
         {
             InitializeComponent();
@@ -56,29 +56,25 @@ pictureBoxParking.Height);
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonTakeCar_Click(object sender, EventArgs e)
+        private void buttonTakeTractor_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
                 if (maskedTextBox.Text != "")
                 {
-                    var car = parking[listBoxLevels.SelectedIndex] -
-                    Convert.ToInt32(maskedTextBox.Text);
-                    if (car != null)
+                    var tractor = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
+                    if (tractor != null)
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                        pictureBoxTakeCar.Height);
+                        Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(25, 15, pictureBoxTakeCar.Width,
-                        pictureBoxTakeCar.Height);
-                        car.DrawCar(gr);
-                        pictureBoxTakeCar.Image = bmp;
+                        tractor.SetPosition(25, 15, pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
+                        tractor.DrawTractor(gr);
+                        pictureBoxTakeTractor.Image = bmp;
                     }
                     else
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                        pictureBoxTakeCar.Height);
-                        pictureBoxTakeCar.Image = bmp;
+                        Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
+                        pictureBoxTakeTractor.Image = bmp;
                     }
                     Draw();
                 }
