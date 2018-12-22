@@ -80,21 +80,21 @@ namespace WindowsFormsTractor
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
-                            var car = level[i];
-                            if (car != null)
+                            var tractor = level[i];
+                            if (tractor != null)
                             {
                                 //если место не пустое
                                 //Записываем тип мшаины
-                                if (car.GetType().Name == "Tractor")
+                                if (tractor.GetType().Name == "Tractor")
                                 {
                                     WriteToFile(i + ":Tractor:", fs);
                                 }
-                                if (car.GetType().Name == "TractorExkavator")
+                                if (tractor.GetType().Name == "TractorExkavator")
                                 {
                                     WriteToFile(i + ":TractorExkavator:", fs);
                                 }
                                 //Записываемые параметры
-                                WriteToFile(car + Environment.NewLine, fs);
+                                WriteToFile(tractor + Environment.NewLine, fs);
                             }
                         }
                     }
