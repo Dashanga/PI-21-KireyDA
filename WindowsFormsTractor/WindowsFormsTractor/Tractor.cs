@@ -7,34 +7,22 @@ using System.Drawing;
 
 namespace WindowsFormsTractor
 {
-    public enum Direction
-    {
-        Up,
-
-        Down,
-
-        Left,
-
-        Right
-    }
+   
     class Tractor : Vehicle
     {
-        
         /// Ширина отрисовки автомобиля  
         private const int tractorWidth = 72; 
         
         /// Ширина отрисовки автомобиля  
         private const int tractorHeight = 42; 
        
-         
+        public bool Kovsh { private set; get; }
+
         /// Конструктор         
         /// <param name="maxSpeed">Максимальная скорость</param>         
         /// <param name="weight">Вес автомобиля</param>         
         /// <param name="mainColor">Основной цвет кузова</param>         
-        /// <param name="dopColor">Дополнительный цвет</param>         
-        /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>         
-        /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
-        /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
+        /// <param name="dopColor">Дополнительный цвет</param>
         ///        
         public Tractor(int maxSpeed, float weight, Color mainColor)
         {             
