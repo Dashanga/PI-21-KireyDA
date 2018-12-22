@@ -78,24 +78,19 @@ namespace WindowsFormsTractor
                     {
                         //Начинаем уровень
                         WriteToFile("Level" + Environment.NewLine, fs);
-                        for (int i = 0; i < countPlaces; i++)
+                        foreach (var car in level)
                         {
-                            try
+                            //Записываем тип мшаины
+                            if (car.GetType().Name == "Tractor")
                             {
-                                var car = level[i];
-                                //Записываем тип мшаины
-                                if (car.GetType().Name == "Car")
-                                {
-                                    WriteToFile(i + ":Car:", fs);
-                                }
-                                if (car.GetType().Name == "SportCar")
-                                {
-                                    WriteToFile(i + ":SportCar:", fs);
-                                }
-                                //Записываемые параметры
-                                WriteToFile(car + Environment.NewLine, fs);
+                                WriteToFile(":Tractor:", fs);
                             }
-                            finally { }
+                            if (car.GetType().Name == "TractorExkavator")
+                            {
+                                WriteToFile(":TractorExkavator:", fs);
+                            }
+                            //Записываемые параметры
+                            WriteToFile(car + Environment.NewLine, fs);
                         }
                     }
                 }
@@ -154,6 +149,7 @@ namespace WindowsFormsTractor
                 throw new Exception("Неверный формат файла");
             }
             int counter = -1;
+            int counterCar = 0;
             ITransport tractor = null;
             for (int i = 1; i < strs.Length; ++i)
             {
@@ -162,6 +158,7 @@ namespace WindowsFormsTractor
                 {
                     //начинаем новый уровень
                     counter++;
+                    counterCar = 0;
                     parkingStages.Add(new Parking<ITransport>(countPlaces, pictureWidth,
                     pictureHeight));
                     continue;
@@ -178,8 +175,15 @@ namespace WindowsFormsTractor
                 {
                     tractor = new TractorExkavator(strs[i].Split(':')[2]);
                 }
-                parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = tractor;
+                parkingStages[counter][counterCar++] = tractor;
             }
+        }
+        /// <summary>
+        /// Сортировка уровней
+        /// </summary>
+        public void Sort()
+        {
+            parkingStages.Sort();
         }
     }
 }

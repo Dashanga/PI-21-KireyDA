@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTractor
 {
-    class TractorExkavator : Tractor
+    class TractorExkavator : Tractor, IComparable<TractorExkavator>, IEquatable<TractorExkavator>
     {
         /// <summary>         
         /// Конструктор         
@@ -79,6 +79,88 @@ namespace WindowsFormsTractor
         {
             return base.ToString() + ";" + DopColor.Name + ";" + Kovsh + ";" +
             KovshBack;
+        }
+
+        /// <summary>
+        /// Метод интерфейса IComparable для класса SportCar
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(TractorExkavator other)
+        {
+            var res = (this is Tractor).CompareTo(other is Tractor);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (Kovsh != other.Kovsh)
+            {
+                return Kovsh.CompareTo(other.Kovsh);
+            }
+            if (KovshBack != other.KovshBack)
+            {
+                return KovshBack.CompareTo(other.KovshBack);
+            }
+            return 0;
+        }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SportCar
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(TractorExkavator other)
+        {
+            var res = (this as Tractor).Equals(other as Tractor);
+            if (!res)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Kovsh != other.Kovsh)
+            {
+                return false;
+            }
+            if (KovshBack != other.KovshBack)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            TractorExkavator carObj = obj as TractorExkavator;
+            if (carObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

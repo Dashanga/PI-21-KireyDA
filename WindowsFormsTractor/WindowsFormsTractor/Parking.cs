@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsTractor
 {
-    public class Parking<T> where T : class, ITransport
+    public class Parking<T> : IEnumerator<T>, IEnumerable<T>, IComparable<Parking<T>>
+where T : class, ITransport
     {
         ///Массив объектов, которые храним
         private Dictionary
@@ -23,8 +25,7 @@ namespace WindowsFormsTractor
 
         ///Высотаокнаотрисовки
 
-        private int
-        PictureHeight { get; set; }
+        private int PictureHeight { get; set; }
 
         ///Размер парковочного места (ширина)
 
@@ -33,6 +34,12 @@ namespace WindowsFormsTractor
         ///Размер парковочного места (высота)
 
         private int _placeSizeHeight = 80;
+
+        /// <summary>
+        /// Текущий элемент для вывода через IEnumerator (будет обращаться по своему
+        //индексу к ключу словаря, по которму будет возвращаться запись)
+        /// </summary>
+        private int _currentIndex;
 
         ///Конструктор
 
@@ -46,6 +53,7 @@ namespace WindowsFormsTractor
         {
             _maxCount = sizes;
             _places = new Dictionary<int, T>();
+            _currentIndex = -1;
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
         }
@@ -73,6 +81,20 @@ namespace WindowsFormsTractor
                     i % 5 * p._placeSizeHeight + 35, p.PictureWidth,
                     p.PictureHeight);
                     return i;
+                }
+                else if (car.GetType() == p._places[i].GetType())
+                {
+                    if (car is TractorExkavator)
+                    {
+                        if ((car as TractorExkavator).Equals(p._places[i]))
+                        {
+                            throw new ParkingAlreadyHaveException();
+                        }
+                    }
+                    else if ((car as Tractor).Equals(p._places[i]))
+                    {
+                        throw new ParkingAlreadyHaveException();
+                    }
                 }
             }
             return -1;
@@ -162,6 +184,113 @@ namespace WindowsFormsTractor
                     throw new ParkingOccupiedPlaceException(ind);
                 }
             }
+        }
+
+        /// <summary>
+        /// Метод интерфейса IEnumerator для получения текущего элемента
+        /// </summary>
+        public T Current {
+            get {
+                return _places[_places.Keys.ToList()[_currentIndex]];
+            }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для получения текущего элемента
+        /// </summary>
+        object IEnumerator.Current {
+            get {
+                return Current;
+            }
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator, вызываемый при удалении объекта
+        /// </summary>
+        public void Dispose()
+        {
+            _places.Clear();
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для перехода к следующему элементу или началу коллекции
+        /// </summary>
+        /// <returns></returns>
+        public bool MoveNext()
+        {
+            if (_currentIndex + 1 >= _places.Count)
+            {
+                Reset();
+                return false;
+            }
+            _currentIndex++;
+            return true;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для сброса и возврата к началу коллекции
+        /// </summary>
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        /// <summary>
+        /// Метод интерфейса IComparable
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(Parking<T> other)
+        {
+            if (_places.Count > other._places.Count)
+            {
+                return -1;
+            }
+            else if (_places.Count < other._places.Count)
+            {
+                return 1;
+            }
+            else if (_places.Count > 0)
+            {
+                var thisKeys = _places.Keys.ToList();
+                var otherKeys = other._places.Keys.ToList();
+                for (int i = 0; i < _places.Count; ++i)
+                {
+                    if (_places[thisKeys[i]] is Tractor && other._places[thisKeys[i]] is
+                    TractorExkavator)
+                    {
+                        return 1;
+                    }
+                    if (_places[thisKeys[i]] is TractorExkavator && other._places[thisKeys[i]] is
+                    Tractor)
+                    {
+                        return -1;
+                    }
+                    if (_places[thisKeys[i]] is Tractor && other._places[thisKeys[i]] is Tractor)
+                    {
+                        return (_places[thisKeys[i]] is
+                        Tractor).CompareTo(other._places[thisKeys[i]] is Tractor);
+                    }
+                    if (_places[thisKeys[i]] is TractorExkavator && other._places[thisKeys[i]] is
+                    TractorExkavator)
+                    {
+                        return (_places[thisKeys[i]] is
+                        TractorExkavator).CompareTo(other._places[thisKeys[i]] is TractorExkavator);
+                    }
+                }
+            }
+            return 0;
         }
     }
 }
