@@ -70,7 +70,7 @@
             this.groupBox1.Size = new System.Drawing.Size(138, 175);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Забрать машину";
+            this.groupBox1.Text = "Забрать трактор";
             // 
             // pictureBoxTakeCar
             // 
@@ -130,7 +130,7 @@
             this.buttonSetCar.Name = "buttonSetCar";
             this.buttonSetCar.Size = new System.Drawing.Size(118, 29);
             this.buttonSetCar.TabIndex = 8;
-            this.buttonSetCar.Text = "Заказать авто";
+            this.buttonSetCar.Text = "Заказать трактор";
             this.buttonSetCar.UseVisualStyleBackColor = true;
             this.buttonSetCar.Click += new System.EventHandler(this.buttonSetCar_Click_1);
             // 
