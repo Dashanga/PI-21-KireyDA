@@ -43,7 +43,7 @@ public class TractorForm {
 		panel = new Panel_pictureBoxTractor();
 		frame.getContentPane().add(panel);
 		
-		JButton btnInit = new JButton("Создать");
+		JButton btnInit = new JButton("Создать трактор");
 		btnInit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				tractor = new Tractor(100 + (int)(Math.random() * 300), 1000 + (float)(Math.random() * 2000), Color.BLUE);
@@ -54,6 +54,18 @@ public class TractorForm {
 		});
 		btnInit.setBounds(0, 0, 200, 28);
 		frame.getContentPane().add(btnInit);
+		
+		JButton btnInitChild = new JButton("Создать трактор-экскаватор");
+		btnInitChild.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				tractor = new TractorExkavator(100 + (int)(Math.random() * 300), 1000 + (float)(Math.random() * 2000), Color.CYAN, Color.YELLOW, true, true);
+				tractor.SetPosition(540, 65, panel.getWidth(), panel.getHeight());
+				panel.addTractor(tractor);
+				Draw();
+			}
+		});
+		btnInitChild.setBounds(frame.getWidth()-300, 0, 200, 28);
+		frame.getContentPane().add(btnInitChild);
 		
 		buttonUp = new JButton("^");
 		buttonUp.addActionListener(new ActionListener() {

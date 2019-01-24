@@ -1,29 +1,16 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-class Tractor {
-	/// <summary>         
-    /// Левая координата отрисовки автомобиля         
-    /// </summary>         
-    protected int _startPosX;
-
-    /// <summary>         
-    /// Правая кооридната отрисовки автомобиля         
-    /// </summary>         
-    protected int _startPosY;
-    
+class Tractor extends Vehicle {
 	// Длина отрисовки трактора
 	private int tractorWidth = 72;
 	// Ширина отрисовки трактора
 	private int tractorHeight = 42;
-	       
-    // Ширина окна отрисовки         
-    protected int _pictureWidth;
-    //Высота окна отрисовки         
-    protected int _pictureHeight;
+	
 
     // Максимальная скорость  
 	private int MaxSpeed;
+	@Override
     public int getMaxSpeed() {
     	return MaxSpeed;
     }
@@ -33,12 +20,21 @@ class Tractor {
     
     /// Вес трактора         
     private float Weight;
+	@Override
     public float getWeight() { 
     	return Weight; 
     }
     private void setWeight(float value) {
     	Weight = value;
     }
+	
+
+	// Основной цвет
+	private Color MainColor;
+	@Override
+	public Color getMainColor() {
+		return MainColor;
+	}
 
     /*
      * Конструктор
@@ -46,27 +42,12 @@ class Tractor {
         /// <param name="weight">Вес автомобиля</param>         
         /// <param name="mainColor">Основной цвет кузова</param>         
         /// <param name="dopColor">Дополнительный цвет</param>         
-        /// <param name="frontSpoiler">Признак наличия переднего спойлера</param>         
-        /// <param name="sideSpoiler">Признак наличия боковых спойлеров</param>         
-        /// <param name="backSpoiler">Признак наличия заднего спойлера</param>  
      */
 	public Tractor(int maxSpeed, float weight, Color mainColor) {
         setMaxSpeed(maxSpeed);             
         setWeight(weight); 
+        MainColor = mainColor;      
 	}
-
-    /// Установка позиции автомобиля       
-    /// <param name="x">Координата X</param>         
-    /// <param name="y">Координата Y</param>         
-    /// <param name="width">Ширина картинки</param>         
-    /// <param name="height">Высота картинки</param>  
-    public void SetPosition(int x, int y, int width, int height)
-    {
-        _startPosX = x;
-        _startPosY = y;
-        _pictureWidth = width;
-        _pictureHeight = height;
-    }
 	
 	/// Изменение направления пермещения
     /// <param name="direction">Направление</param> 
@@ -117,16 +98,13 @@ class Tractor {
 	public void DrawTractor(Graphics g) {
 		g.setColor(Color.yellow);
 		g.fillRect(_startPosX + 1, _startPosY + 5, 50, 15);
-        g.fillRect(_startPosX - 20, _startPosY - 15, 25, 6);
-        g.fillRect(_startPosX - 20, _startPosY - 15, 6, 20);
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(_startPosX + 2, _startPosY - 15, 20, 25);
 		g.fillOval(_startPosX + 40, _startPosY + 15, 12, 12);
-        g.fillRect(_startPosX - 20, _startPosY , 10, 10);
 		g.fillOval(_startPosX, _startPosY + 15, 12, 12);
 		
-		g.setColor(Color.CYAN);
+		g.setColor(MainColor);
 		g.fillRect(_startPosX + 3, _startPosY - 10, 7, 15);
 	}
 }
