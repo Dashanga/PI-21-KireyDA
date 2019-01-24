@@ -7,40 +7,16 @@ using System.Drawing;
 
 namespace WindowsFormsTractor
 {
-    class Tractor
+   
+    class Tractor : Vehicle
     {
-        /// Левая координата отрисовки автомобиля    
-        private float _startPosX; 
-     
-        /// Правая кооридната отрисовки автомобиля         
-        private float _startPosY; 
-        
-        /// Ширина окна отрисовки        
-        private int _pictureWidth;
-
-        //Высота окна отрисовки         
-        private int _pictureHeight; 
-        
         /// Ширина отрисовки автомобиля  
         private const int tractorWidth = 72; 
         
         /// Ширина отрисовки автомобиля  
         private const int tractorHeight = 42; 
-  
-        /// Максимальная скорость       
-        public int MaxSpeed { private set; get; } 
-   
-        /// Вес автомобиля         
-        public float Weight { private set; get; }
-
-        public Color MainColor { private set; get; }
-        
-        /// Дополнительный цвет    
-        public Color DopColor { private set; get; } 
-
+       
         public bool Kovsh { private set; get; }
-
-
 
         /// Конструктор         
         /// <param name="maxSpeed">Максимальная скорость</param>         
@@ -48,31 +24,16 @@ namespace WindowsFormsTractor
         /// <param name="mainColor">Основной цвет кузова</param>         
         /// <param name="dopColor">Дополнительный цвет</param>
         ///        
-        public Tractor(int maxSpeed, float weight, Color mainColor, Color dopColor, bool kovsh)
+        public Tractor(int maxSpeed, float weight, Color mainColor)
         {             
             MaxSpeed = maxSpeed;             
             Weight = weight;             
-            MainColor = mainColor;            
-            DopColor = dopColor;
-            Kovsh = kovsh;        
+            MainColor = mainColor;
         }
       
-    /// Установка позиции автомобиля       
-    /// <param name="x">Координата X</param>         
-    /// <param name="y">Координата Y</param>         
-    /// <param name="width">Ширина картинки</param>         
-    /// <param name="height">Высота картинки</param>        
-    public void SetPosition(int x, int y, int width, int height)        
-    {             
-        _startPosX = x;             
-        _startPosY = y;             
-        _pictureWidth = width;             
-        _pictureHeight = height;         
-    }
-
         /// Изменение направления пермещения
         /// <param name="direction">Направление</param> 
-        public void MoveTransport(Direction direction)
+        public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 130 / Weight; switch (direction)
             {                 // вправо                 
@@ -108,20 +69,15 @@ namespace WindowsFormsTractor
 
         /// Отрисовка автомобиля
         /// <param name="g"></param> 
-        public void DrawTractor(Graphics g)
+        public override void DrawTractor(Graphics g)
         {
-
             Brush spoiler = new SolidBrush(Color.Yellow);
             g.FillRectangle(spoiler, _startPosX + 1, _startPosY + 5, 50, 15);
-            g.FillRectangle(spoiler, _startPosX - 20, _startPosY - 15, 25, 6);
-            g.FillRectangle(spoiler, _startPosX - 20, _startPosY - 15, 6, 20);
-
             spoiler = new SolidBrush(Color.Black);
             g.FillRectangle(spoiler, _startPosX +2, _startPosY - 15, 20, 25);
             g.FillEllipse(spoiler, _startPosX + 40, _startPosY + 15, 12, 12);
             g.FillEllipse(spoiler, _startPosX, _startPosY + 15, 12, 12);
-            g.FillRectangle(spoiler, _startPosX - 20, _startPosY , 10, 10);
-            spoiler = new SolidBrush(Color.LightBlue);
+            spoiler = new SolidBrush(MainColor);
             g.FillRectangle(spoiler, _startPosX + 3 , _startPosY - 10, 7, 15);
         }
     }

@@ -12,7 +12,7 @@ namespace WindowsFormsTractor
 {
     public partial class TractorForm : Form
     {
-        private Tractor tractor;
+        private ITransport tractor;
         /// Конструктор
         public TractorForm()
         {
@@ -21,11 +21,11 @@ namespace WindowsFormsTractor
 
         //Метод отрисовки машины       
         private void Draw()
-        {             
-            Bitmap bmp = new Bitmap(pictureBoxTractor.Width, pictureBoxTractor.Height);             
-            Graphics gr = Graphics.FromImage(bmp);             
-            tractor.DrawTractor(gr);             
-            pictureBoxTractor.Image = bmp;         
+        {
+            Bitmap bmp = new Bitmap(pictureBoxTractor.Width, pictureBoxTractor.Height);
+            Graphics gr = Graphics.FromImage(bmp);
+            tractor.DrawTractor(gr);
+            pictureBoxTractor.Image = bmp;
         }
 
         // Обработка нажатия кнопки "Создать" 
@@ -34,7 +34,7 @@ namespace WindowsFormsTractor
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            tractor = new Tractor(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true);
+            tractor = new Tractor(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue);
             tractor.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
             Draw();
         }
@@ -63,5 +63,12 @@ namespace WindowsFormsTractor
             }
             Draw();
         }
-    }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random(); tractor = new TractorExkavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.LightBlue, Color.Yellow, true, true);
+            tractor.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTractor.Width, pictureBoxTractor.Height);
+            Draw();
+        }
+    } 
 }
