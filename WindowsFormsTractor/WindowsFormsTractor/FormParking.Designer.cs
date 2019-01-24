@@ -30,13 +30,13 @@
         {
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
-            this.buttonTakeCar = new System.Windows.Forms.Button();
+            this.pictureBoxTakeTractor = new System.Windows.Forms.PictureBox();
+            this.buttonTakeTractor = new System.Windows.Forms.Button();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonSetCar = new System.Windows.Forms.Button();
+            this.buttonSetTractor = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +45,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeTractor)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,8 +60,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBoxTakeCar);
-            this.groupBox1.Controls.Add(this.buttonTakeCar);
+            this.groupBox1.Controls.Add(this.pictureBoxTakeTractor);
+            this.groupBox1.Controls.Add(this.buttonTakeTractor);
             this.groupBox1.Controls.Add(this.maskedTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(575, 238);
@@ -71,23 +71,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Забрать машину";
             // 
-            // pictureBoxTakeCar
+            // pictureBoxTakeTractor
             // 
-            this.pictureBoxTakeCar.Location = new System.Drawing.Point(0, 72);
-            this.pictureBoxTakeCar.Name = "pictureBoxTakeCar";
-            this.pictureBoxTakeCar.Size = new System.Drawing.Size(180, 103);
-            this.pictureBoxTakeCar.TabIndex = 3;
-            this.pictureBoxTakeCar.TabStop = false;
+            this.pictureBoxTakeTractor.Location = new System.Drawing.Point(0, 72);
+            this.pictureBoxTakeTractor.Name = "pictureBoxTakeTractor";
+            this.pictureBoxTakeTractor.Size = new System.Drawing.Size(180, 103);
+            this.pictureBoxTakeTractor.TabIndex = 3;
+            this.pictureBoxTakeTractor.TabStop = false;
             // 
-            // buttonTakeCar
+            // buttonTakeTractor
             // 
-            this.buttonTakeCar.Location = new System.Drawing.Point(20, 42);
-            this.buttonTakeCar.Name = "buttonTakeCar";
-            this.buttonTakeCar.Size = new System.Drawing.Size(71, 24);
-            this.buttonTakeCar.TabIndex = 2;
-            this.buttonTakeCar.Text = "Забрать";
-            this.buttonTakeCar.UseVisualStyleBackColor = true;
-            this.buttonTakeCar.Click += new System.EventHandler(this.buttonTakeCar_Click);
+            this.buttonTakeTractor.Location = new System.Drawing.Point(20, 42);
+            this.buttonTakeTractor.Name = "buttonTakeTractor";
+            this.buttonTakeTractor.Size = new System.Drawing.Size(71, 24);
+            this.buttonTakeTractor.TabIndex = 2;
+            this.buttonTakeTractor.Text = "Забрать";
+            this.buttonTakeTractor.UseVisualStyleBackColor = true;
+            this.buttonTakeTractor.Click += new System.EventHandler(this.buttonTakeTractor_Click);
             // 
             // maskedTextBox
             // 
@@ -123,15 +123,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Уровни";
             // 
-            // buttonSetCar
+            // buttonSetTractor
             // 
-            this.buttonSetCar.Location = new System.Drawing.Point(581, 169);
-            this.buttonSetCar.Name = "buttonSetCar";
-            this.buttonSetCar.Size = new System.Drawing.Size(118, 29);
-            this.buttonSetCar.TabIndex = 8;
-            this.buttonSetCar.Text = "Заказать авто";
-            this.buttonSetCar.UseVisualStyleBackColor = true;
-            this.buttonSetCar.Click += new System.EventHandler(this.buttonSetCar_Click_1);
+            this.buttonSetTractor.Location = new System.Drawing.Point(581, 169);
+            this.buttonSetTractor.Name = "buttonSetTractor";
+            this.buttonSetTractor.Size = new System.Drawing.Size(118, 29);
+            this.buttonSetTractor.TabIndex = 8;
+            this.buttonSetTractor.Text = "Заказать авто";
+            this.buttonSetTractor.UseVisualStyleBackColor = true;
+            this.buttonSetTractor.Click += new System.EventHandler(this.buttonSetTractor_Click_1);
             // 
             // menuStrip
             // 
@@ -179,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 413);
-            this.Controls.Add(this.buttonSetCar);
+            this.Controls.Add(this.buttonSetTractor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
@@ -191,7 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeTractor)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -203,13 +203,13 @@
 
         private System.Windows.Forms.PictureBox pictureBoxParking;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBoxTakeCar;
-        private System.Windows.Forms.Button buttonTakeCar;
+        private System.Windows.Forms.PictureBox pictureBoxTakeTractor;
+        private System.Windows.Forms.Button buttonTakeTractor;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonSetCar;
+        private System.Windows.Forms.Button buttonSetTractor;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;

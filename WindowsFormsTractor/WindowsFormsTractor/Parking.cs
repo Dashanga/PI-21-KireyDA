@@ -10,8 +10,7 @@ namespace WindowsFormsTractor
     public class Parking<T> where T : class, ITransport
     {
         ///Массив объектов, которые храним
-        private Dictionary
-        <int, T> _places;
+        private Dictionary <int, T> _places;
 
         ///Максимальное количество мест на парковке
 
@@ -54,9 +53,9 @@ namespace WindowsFormsTractor
         ///Логика действия: на парковку добавляется автомобиль
 
         ///<param name="p">Парковка</param>
-        ///<param name="car">Добавляемыйавтомобиль</param>
+        ///<param name="tractor">Добавляемыйавтомобиль</param>
         ///<returns></returns>
-        public static int operator +(Parking<T> p, T car)
+        public static int operator +(Parking<T> p, T tractor)
         {
             if (p._places.Count == p._maxCount)
             {
@@ -68,7 +67,7 @@ namespace WindowsFormsTractor
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p._places.Add(i, car);
+                    p._places.Add(i, tractor);
                     p._places[i].SetPosition(25 + i / 5 * p._placeSizeWidth + 5,
                     i % 5 * p._placeSizeHeight + 35, p.PictureWidth,
                     p.PictureHeight);
@@ -88,9 +87,9 @@ namespace WindowsFormsTractor
         {
             if (!p.CheckFreePlace(index))
             {
-                T car = p._places[index];
+                T tractor = p._places[index];
                 p._places.Remove(index);
-                return car;
+                return tractor;
             }
             throw new ParkingNotFoundException(index);
         }
@@ -113,7 +112,7 @@ namespace WindowsFormsTractor
             var keys = _places.Keys.ToList();
             for (int i = 0; i < keys.Count; i++)
             {
-                _places[keys[i]].DrawCar(g);
+                _places[keys[i]].DrawTractor(g);
             }
         }
 

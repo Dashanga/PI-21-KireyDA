@@ -22,8 +22,7 @@ namespace WindowsFormsTractor
         /// </summary>
         FormTractorConfig form;
 
-        ///Количествоуровней-парковок
-
+        ///Количество уровней-парковок
         private const int countLevel = 5;
         /// <summary>
         /// Логгер
@@ -64,7 +63,7 @@ pictureBoxParking.Height);
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonTakeCar_Click(object sender, EventArgs e)
+        private void buttonTakeTractor_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
@@ -72,16 +71,14 @@ pictureBoxParking.Height);
                 {
                     try
                     {
-                        var car = parking[listBoxLevels.SelectedIndex] -
-                    Convert.ToInt32(maskedTextBox.Text);
-                   
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                        pictureBoxTakeCar.Height);
+                    var tractor = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
+                    if (tractor != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        car.SetPosition(25, 15, pictureBoxTakeCar.Width,
-                        pictureBoxTakeCar.Height);
-                        car.DrawCar(gr);
-                        pictureBoxTakeCar.Image = bmp;
+                        tractor.SetPosition(25, 15, pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
+                        tractor.DrawTractor(gr);
+                        pictureBoxTakeTractor.Image = bmp;
                         logger.Info("Изъят автомобиль " + car.ToString() + " с места " +
 maskedTextBox.Text);
                         Draw();
@@ -91,8 +88,8 @@ catch (ParkingNotFoundException ex)
                 MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
                 Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                pictureBoxTakeCar.Height);
-                pictureBoxTakeCar.Image = bmp;
+                pictureBoxTakeTractor.Height);
+                pictureBoxTakeTractor.Image = bmp;
             }
             catch (Exception ex)
             {
@@ -116,23 +113,23 @@ private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonSetCar_Click_1(object sender, EventArgs e)
+        private void buttonSetTractor_Click_1(object sender, EventArgs e)
         {
             form = new FormTractorConfig();
-            form.AddEvent(AddCar);
+            form.AddEvent(AddTractor);
             form.Show();
         }
         /// <summary>
         /// Метод добавления машины
         /// </summary>
-        /// <param name="car"></param>
-        private void AddCar(ITransport car)
+        /// <param name="tractor"></param>
+        private void AddTractor(ITransport tractor)
         {
-            if (car != null && listBoxLevels.SelectedIndex > -1)
+            if (tractor != null && listBoxLevels.SelectedIndex > -1)
             {
-                try
-                {
-                    int place = parking[listBoxLevels.SelectedIndex] + car;
+            try
+            {
+                    int place = parking[listBoxLevels.SelectedIndex] + tractor;
                     logger.Info("Добавлен автомобиль " + car.ToString() + " на место " +
      place);
                     Draw();

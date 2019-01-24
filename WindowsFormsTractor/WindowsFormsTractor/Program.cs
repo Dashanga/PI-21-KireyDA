@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsTractor
 {
-    public delegate void carDelegate(ITransport car);
+    public delegate void tractorDelegate(ITransport tractor);
 
     static class Program
     {
