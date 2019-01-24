@@ -52,8 +52,9 @@ namespace WindowsFormsTractor
             if (Kovsh)
             {
                 Brush spoiler = new SolidBrush(DopColor);
-                g.FillRectangle(spoiler, _startPosX - 20, _startPosY - 15, 25, 6);
                 g.FillRectangle(spoiler, _startPosX - 20, _startPosY - 15, 6, 20);
+                g.FillRectangle(spoiler, _startPosX - 20, _startPosY - 15, 25, 6);
+                
                 spoiler = new SolidBrush(Color.Black);
                 g.FillRectangle(spoiler, _startPosX - 20, _startPosY, 10, 10);
             }

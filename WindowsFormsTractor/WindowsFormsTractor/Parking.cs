@@ -12,8 +12,7 @@ namespace WindowsFormsTractor
 where T : class, ITransport
     {
         ///Массив объектов, которые храним
-        private Dictionary
-        <int, T> _places;
+        private Dictionary <int, T> _places;
 
         ///Максимальное количество мест на парковке
 

@@ -22,8 +22,7 @@ namespace WindowsFormsTractor
         /// </summary>
         FormTractorConfig form;
 
-        ///Количествоуровней-парковок
-
+        ///Количество уровней-парковок
         private const int countLevel = 5;
         /// <summary>
         /// Логгер
@@ -82,7 +81,7 @@ namespace WindowsFormsTractor
                         pictureBoxTakeTractor.Height);
                         tractor.DrawTractor(gr);
                         pictureBoxTakeTractor.Image = bmp;
-                        logger.Info("Изъят автомобиль " + tractor.ToString() + " с места " +
+                        logger.Info("Изъят трактор " + tractor.ToString() + " с места " +
 maskedTextBox.Text);
                         Draw();
                     }
@@ -130,8 +129,8 @@ private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (tractor != null && listBoxLevels.SelectedIndex > -1)
             {
-                try
-                {
+            try
+            {
                     int place = parking[listBoxLevels.SelectedIndex] + tractor;
                     logger.Info("Добавлен автомобиль " + tractor.ToString() + " на место " +
      place);

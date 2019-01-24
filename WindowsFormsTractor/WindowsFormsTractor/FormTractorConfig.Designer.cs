@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxCar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTractor = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelSportCar = new System.Windows.Forms.Label();
-            this.labelCar = new System.Windows.Forms.Label();
-            this.panelCar = new System.Windows.Forms.Panel();
+            this.labelTractorExkavator = new System.Windows.Forms.Label();
+            this.labelTractor = new System.Windows.Forms.Label();
+            this.panelTractor = new System.Windows.Forms.Panel();
             this.labelDopColor = new System.Windows.Forms.Label();
             this.labelBaseColor = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -46,25 +46,25 @@
             this.panelBlack = new System.Windows.Forms.Panel();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTractor)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.panelCar.SuspendLayout();
+            this.panelTractor.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBoxCar
+            // pictureBoxTractor
             // 
-            this.pictureBoxCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxCar.Location = new System.Drawing.Point(19, 8);
-            this.pictureBoxCar.Name = "pictureBoxCar";
-            this.pictureBoxCar.Size = new System.Drawing.Size(151, 93);
-            this.pictureBoxCar.TabIndex = 0;
-            this.pictureBoxCar.TabStop = false;
+            this.pictureBoxTractor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxTractor.Location = new System.Drawing.Point(19, 8);
+            this.pictureBoxTractor.Name = "pictureBoxTractor";
+            this.pictureBoxTractor.Size = new System.Drawing.Size(151, 93);
+            this.pictureBoxTractor.TabIndex = 0;
+            this.pictureBoxTractor.TabStop = false;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.labelSportCar);
-            this.groupBox1.Controls.Add(this.labelCar);
+            this.groupBox1.Controls.Add(this.labelTractorExkavator);
+            this.groupBox1.Controls.Add(this.labelTractor);
             this.groupBox1.Location = new System.Drawing.Point(33, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(134, 136);
@@ -72,39 +72,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Тип трактора";
             // 
-            // labelSportCar
+            // labelTractorExkavator
             // 
-            this.labelSportCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelSportCar.Location = new System.Drawing.Point(6, 97);
-            this.labelSportCar.Name = "labelSportCar";
-            this.labelSportCar.Size = new System.Drawing.Size(122, 22);
-            this.labelSportCar.TabIndex = 1;
-            this.labelSportCar.Text = "Трактор-экскаватор";
-            this.labelSportCar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelSportCar_MouseDown);
+            this.labelTractorExkavator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTractorExkavator.Location = new System.Drawing.Point(6, 97);
+            this.labelTractorExkavator.Name = "labelTractorExkavator";
+            this.labelTractorExkavator.Size = new System.Drawing.Size(122, 22);
+            this.labelTractorExkavator.TabIndex = 1;
+            this.labelTractorExkavator.Text = "Трактор-экскаватор";
+            this.labelTractorExkavator.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTractorExkavator_MouseDown);
             // 
-            // labelCar
+            // labelTractor
             // 
-            this.labelCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelCar.Location = new System.Drawing.Point(6, 50);
-            this.labelCar.Name = "labelCar";
-            this.labelCar.Size = new System.Drawing.Size(122, 24);
-            this.labelCar.TabIndex = 0;
-            this.labelCar.Text = "Обычный трактор";
-            this.labelCar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelCar_MouseDown);
+            this.labelTractor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTractor.Location = new System.Drawing.Point(6, 50);
+            this.labelTractor.Name = "labelTractor";
+            this.labelTractor.Size = new System.Drawing.Size(122, 24);
+            this.labelTractor.TabIndex = 0;
+            this.labelTractor.Text = "Обычный трактор";
+            this.labelTractor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTractor_MouseDown);
             // 
-            // panelCar
+            // panelTractor
             // 
-            this.panelCar.AllowDrop = true;
-            this.panelCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCar.Controls.Add(this.labelDopColor);
-            this.panelCar.Controls.Add(this.labelBaseColor);
-            this.panelCar.Controls.Add(this.pictureBoxCar);
-            this.panelCar.Location = new System.Drawing.Point(183, 37);
-            this.panelCar.Name = "panelCar";
-            this.panelCar.Size = new System.Drawing.Size(191, 199);
-            this.panelCar.TabIndex = 2;
-            this.panelCar.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelCar_DragDrop);
-            this.panelCar.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelCar_DragEnter);
+            this.panelTractor.AllowDrop = true;
+            this.panelTractor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTractor.Controls.Add(this.labelDopColor);
+            this.panelTractor.Controls.Add(this.labelBaseColor);
+            this.panelTractor.Controls.Add(this.pictureBoxTractor);
+            this.panelTractor.Location = new System.Drawing.Point(183, 37);
+            this.panelTractor.Name = "panelTractor";
+            this.panelTractor.Size = new System.Drawing.Size(191, 199);
+            this.panelTractor.TabIndex = 2;
+            this.panelTractor.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelTractor_DragDrop);
+            this.panelTractor.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelTractor_DragEnter);
             // 
             // labelDopColor
             // 
@@ -242,13 +242,13 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.panelCar);
+            this.Controls.Add(this.panelTractor);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormTractorConfig";
             this.Text = "Выбор трактора";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTractor)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.panelCar.ResumeLayout(false);
+            this.panelTractor.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -256,11 +256,11 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxCar;
+        private System.Windows.Forms.PictureBox pictureBoxTractor;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label labelSportCar;
-        private System.Windows.Forms.Label labelCar;
-        private System.Windows.Forms.Panel panelCar;
+        private System.Windows.Forms.Label labelTractorExkavator;
+        private System.Windows.Forms.Label labelTractor;
+        private System.Windows.Forms.Panel panelTractor;
         private System.Windows.Forms.Label labelDopColor;
         private System.Windows.Forms.Label labelBaseColor;
         private System.Windows.Forms.GroupBox groupBox2;
