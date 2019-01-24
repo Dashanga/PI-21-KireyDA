@@ -79,7 +79,7 @@ pictureBoxParking.Height);
                         tractor.SetPosition(25, 15, pictureBoxTakeTractor.Width, pictureBoxTakeTractor.Height);
                         tractor.DrawTractor(gr);
                         pictureBoxTakeTractor.Image = bmp;
-                        logger.Info("Изъят автомобиль " + car.ToString() + " с места " +
+                        logger.Info("Изъят автомобиль " + tractor.ToString() + " с места " +
 maskedTextBox.Text);
                         Draw();
                     }
@@ -87,7 +87,7 @@ catch (ParkingNotFoundException ex)
             {
                 MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
-                Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
+                Bitmap bmp = new Bitmap(pictureBoxTakeTractor.Width,
                 pictureBoxTakeTractor.Height);
                 pictureBoxTakeTractor.Image = bmp;
             }
@@ -130,7 +130,7 @@ private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
             try
             {
                     int place = parking[listBoxLevels.SelectedIndex] + tractor;
-                    logger.Info("Добавлен автомобиль " + car.ToString() + " на место " +
+                    logger.Info("Добавлен автомобиль " + tractor.ToString() + " на место " +
      place);
                     Draw();
                 }
