@@ -5,12 +5,9 @@ import javax.swing.JPanel;
 
 public class Panel_pictureBoxTractor extends JPanel {
 
-	private Tractor tractor;
-	public Panel_pictureBoxTractor() {
-		setBounds(0, 28, 780, 485);
-	}
+	private Vehicle tractor;
 	
-	public void addTractor(Tractor t){
+	public void addTractor(Vehicle t){
 		this.tractor = t;
 	}
 	
