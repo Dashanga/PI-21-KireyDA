@@ -47,7 +47,7 @@ namespace WindowsFormsTractor
                 KovshBack = Convert.ToBoolean(strs[5]);
             }
         }
-        public override void DrawCar(Graphics g)
+        public override void DrawTractor(Graphics g)
         {
             if (Kovsh)
             {
@@ -64,7 +64,7 @@ namespace WindowsFormsTractor
                 spoiler = new SolidBrush(Color.Black);
                 g.FillRectangle(spoiler, _startPosX + 60, _startPosY+5, 15, 15);
             }
-            base.DrawCar(g);
+            base.DrawTractor(g);
         }
 
         /// Смена дополнительного цвета
@@ -82,7 +82,7 @@ namespace WindowsFormsTractor
         }
 
         /// <summary>
-        /// Метод интерфейса IComparable для класса SportCar
+        /// Метод интерфейса IComparable для класса TractorExkavator
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
@@ -108,7 +108,7 @@ namespace WindowsFormsTractor
             return 0;
         }
         /// <summary>
-        /// Метод интерфейса IEquatable для класса SportCar
+        /// Метод интерфейса IEquatable для класса TractorExkavator
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
@@ -144,14 +144,14 @@ namespace WindowsFormsTractor
             {
                 return false;
             }
-            TractorExkavator carObj = obj as TractorExkavator;
-            if (carObj == null)
+            TractorExkavator tractorObj = obj as TractorExkavator;
+            if (tractorObj == null)
             {
                 return false;
             }
             else
             {
-                return Equals(carObj);
+                return Equals(tractorObj);
             }
         }
         /// <summary>

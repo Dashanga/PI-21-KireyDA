@@ -78,19 +78,19 @@ namespace WindowsFormsTractor
                     {
                         //Начинаем уровень
                         WriteToFile("Level" + Environment.NewLine, fs);
-                        foreach (var car in level)
+                        foreach (var tractor in level)
                         {
                             //Записываем тип мшаины
-                            if (car.GetType().Name == "Tractor")
+                            if (tractor.GetType().Name == "Tractor")
                             {
                                 WriteToFile(":Tractor:", fs);
                             }
-                            if (car.GetType().Name == "TractorExkavator")
+                            if (tractor.GetType().Name == "TractorExkavator")
                             {
                                 WriteToFile(":TractorExkavator:", fs);
                             }
                             //Записываемые параметры
-                            WriteToFile(car + Environment.NewLine, fs);
+                            WriteToFile(tractor + Environment.NewLine, fs);
                         }
                     }
                 }
@@ -149,7 +149,7 @@ namespace WindowsFormsTractor
                 throw new Exception("Неверный формат файла");
             }
             int counter = -1;
-            int counterCar = 0;
+            int counterTractor = 0;
             ITransport tractor = null;
             for (int i = 1; i < strs.Length; ++i)
             {
@@ -158,7 +158,7 @@ namespace WindowsFormsTractor
                 {
                     //начинаем новый уровень
                     counter++;
-                    counterCar = 0;
+                    counterTractor = 0;
                     parkingStages.Add(new Parking<ITransport>(countPlaces, pictureWidth,
                     pictureHeight));
                     continue;
@@ -175,7 +175,7 @@ namespace WindowsFormsTractor
                 {
                     tractor = new TractorExkavator(strs[i].Split(':')[2]);
                 }
-                parkingStages[counter][counterCar++] = tractor;
+                parkingStages[counter][counterTractor++] = tractor;
             }
         }
         /// <summary>
