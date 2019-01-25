@@ -205,7 +205,7 @@ private void listBoxLevels_SelectedIndexChanged_1(object sender, EventArgs e)
         /// <param name="e"></param>
       
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSort_Click(object sender, EventArgs e)
         {
             parking.Sort();
             Draw();
